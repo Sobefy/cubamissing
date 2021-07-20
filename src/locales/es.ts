@@ -1,5 +1,6 @@
 const es = {
   home: {
+    head: { headTitle: "Cuba Missing", headDescription: "Cuba Missing" },
     hero: {
       title: "Ayudanos a encontrar a nuestros hermanos.",
       reportButton: "Reportar Desaparecido",
