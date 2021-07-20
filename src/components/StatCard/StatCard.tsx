@@ -13,6 +13,7 @@ const StatCard = ({ label, number }: StatCardProps) => {
       boxShadow="brand.whiteShadow"
       background="white"
       borderRadius={8}
+      textAlign={{ base: "center", md: "left" }}
     >
       <StatLabel fontSize="md" fontWeight="normal">
         {label}
