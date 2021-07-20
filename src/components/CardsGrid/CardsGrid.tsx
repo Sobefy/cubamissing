@@ -3,6 +3,8 @@ import { Box, Grid } from "@chakra-ui/react";
 import { cardTranslations, person } from "../../types/types";
 import Card from "../Card/Card";
 import Container from "../Container/Container";
+import CardSkeleton from "../Skeleton/CardSkeleton";
+import { skeletonCardLength } from "../../consts/consts";
 
 interface CardsGridProps {
   translations: cardTranslations;
@@ -26,7 +28,11 @@ const CardsGrid = ({ translations, persons, isLoading }: CardsGridProps) => {
                   />
                 ))}
               </>
-            ) : null}
+            ) : (
+              [...Array(skeletonCardLength)].map((_, i) => (
+                <CardSkeleton key={i} />
+              ))
+            )}
           </Grid>
         </Container>
       </Box>
