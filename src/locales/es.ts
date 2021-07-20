@@ -12,7 +12,7 @@ const es = {
       toVerify: "Por verificar",
     },
     search: {
-      searchTitle: "Lorem ipsum dolor sit amet consectutar domor",
+      searchTitle: "Listado de personas desaparecidas.",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "John Doe",
