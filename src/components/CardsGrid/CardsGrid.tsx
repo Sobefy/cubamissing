@@ -6,22 +6,27 @@ import Container from "../Container/Container";
 
 interface CardsGridProps {
   translations: cardTranslations;
-  persons: person[];
+  persons: person[] | null;
+  isLoading: boolean;
 }
 
-const CardsGrid = ({ translations, persons }: CardsGridProps) => {
+const CardsGrid = ({ translations, persons, isLoading }: CardsGridProps) => {
   return (
     <main>
       <Box backgroundColor="brand.oceanBlue" py={8}>
         <Container>
           <Grid templateColumns="1fr 1fr" columnGap={10} rowGap={10}>
-            {persons.map((person) => (
-              <Card
-                key={person.id}
-                person={person}
-                translations={translations}
-              />
-            ))}
+            {!isLoading && persons ? (
+              <>
+                {persons.map((person) => (
+                  <Card
+                    key={person.id}
+                    person={person}
+                    translations={translations}
+                  />
+                ))}
+              </>
+            ) : null}
           </Grid>
         </Container>
       </Box>

@@ -35,7 +35,7 @@ const Card = ({ person, translations }: CardProps) => {
       boxShadow="brand.whiteShadow"
       borderRadius={8}
     >
-      <Flex>
+      <Flex mb={4}>
         <Box mr={4}>
           <SkeletonCircle size="16" />
         </Box>
@@ -57,10 +57,6 @@ const Card = ({ person, translations }: CardProps) => {
         {`. ${stopHourLabel}`}
         <Text as="span" color="brand.blue">
           {stopHour}
-        </Text>
-        {`. ${stopDateLabel}`}
-        <Text as="span" color="brand.blue">
-          {stopDate}
         </Text>
         {`. ${stopDateLabel}`}
         <Text as="span" color="brand.blue">

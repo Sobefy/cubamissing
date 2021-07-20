@@ -1,5 +1,5 @@
 export interface person {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   lastSeen: string;
@@ -8,6 +8,11 @@ export interface person {
   stopDate: string;
   lastReport: string;
   verification: string;
+  gender: string;
+  birthDate: string;
+  age: string;
+  profession: string;
+  skinTone: string;
 }
 
 export interface cardTranslations {
@@ -17,4 +22,18 @@ export interface cardTranslations {
   stopDate: string;
   lastReport: string;
   verification: string;
+}
+
+export interface stringObject {
+  [key: string]: string;
+}
+
+export interface personUnformatted {
+  [key: string]: stringObject;
+}
+
+export interface personsResponse {
+  feed: {
+    entry: personUnformatted[];
+  };
 }
