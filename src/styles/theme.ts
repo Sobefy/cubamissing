@@ -16,6 +16,15 @@ const theme = {
       blue: "#2350B2",
       darkBlue: "#1D4ED8",
       blueGrey: "#94A3B8",
+      oceanBlue: "#0f172a",
+    },
+  },
+  shadows: {
+    ...chakraTheme.shadows,
+    brand: {
+      // White
+      whiteShadow:
+        "0px 2px 4px rgb(148 163 184 / 5%), 0px 6px 24px rgb(235 238 251 / 40%)",
     },
   },
 };

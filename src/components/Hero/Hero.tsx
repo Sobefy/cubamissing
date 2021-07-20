@@ -13,7 +13,7 @@ interface HeroProps {
 const Hero = ({ translations }: HeroProps) => {
   const { title, subTitle, reportButton } = translations;
   return (
-    <Box textAlign="center" background="grey" py={6}>
+    <Box textAlign="center" background="grey" py={6} position="relative">
       <Image
         alt="Cuba"
         src="/hero.jpg"
