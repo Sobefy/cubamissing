@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import useSWR from "swr";
 
@@ -9,6 +10,7 @@ import Stats from "../src/components/Stats/Stats";
 import { googleSpreadsheetsAPIUrl, personsAPIUrl } from "../src/consts/consts";
 import es from "../src/locales/es";
 import { formatPersonsReponse } from "../src/ultis/format";
+import { person } from "../src/types/types";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -30,8 +32,15 @@ export default function Home() {
   );
   const formattedData = formatPersonsReponse(data);
   const isLoading = !error && !formattedData;
+  const [persons, setPersons] = useState<person[] | null>(null);
 
-  console.log(formattedData);
+  useEffect(() => {
+    if (formattedData && !persons) {
+      setPersons(formattedData);
+    }
+  }, [formattedData, persons]);
+
+  console.log("running");
 
   return (
     <div>
@@ -43,11 +52,7 @@ export default function Home() {
       <Hero translations={hero} />
       <Stats translations={stats} />
       <Search translations={search} />
-      <CardsGrid
-        translations={cards}
-        isLoading={isLoading}
-        persons={formattedData}
-      />
+      <CardsGrid translations={cards} isLoading={isLoading} persons={persons} />
       <Footer translations={footer} />
     </div>
   );
