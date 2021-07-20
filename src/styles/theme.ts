@@ -12,8 +12,10 @@ const theme = {
   colors: {
     ...chakraTheme.colors,
     brand: {
+      // Blue
       blue: "#2350B2",
       darkBlue: "#1D4ED8",
+      blueGrey: "#94A3B8",
     },
   },
 };
