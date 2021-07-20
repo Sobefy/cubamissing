@@ -17,7 +17,11 @@ const CardsGrid = ({ translations, persons, isLoading }: CardsGridProps) => {
     <main>
       <Box backgroundColor="brand.oceanBlue" py={8}>
         <Container>
-          <Grid templateColumns="1fr 1fr" columnGap={10} rowGap={10}>
+          <Grid
+            templateColumns={{ base: "1fr", md: "1fr 1fr" }}
+            columnGap={10}
+            rowGap={10}
+          >
             {!isLoading && persons ? (
               <>
                 {persons.map((person) => (
