@@ -1,7 +1,9 @@
 import Head from "next/head";
+import CardsGrid from "../src/components/CardsGrid/CardsGrid";
 import Hero from "../src/components/Hero/Hero";
 import Search from "../src/components/Search/Search";
 import Stats from "../src/components/Stats/Stats";
+import mockedPersons from "../src/data/mockedPersons";
 import es from "../src/locales/es";
 
 export default function Home() {
@@ -11,6 +13,7 @@ export default function Home() {
       hero,
       stats,
       search,
+      cards,
     },
   } = es;
 
@@ -24,6 +27,7 @@ export default function Home() {
       <Hero translations={hero} />
       <Stats translations={stats} />
       <Search translations={search} />
+      <CardsGrid translations={cards} persons={mockedPersons} />
     </div>
   );
 }

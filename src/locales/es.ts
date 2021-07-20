@@ -18,6 +18,14 @@ const es = {
       searchPlaceholder: "John Doe",
       searchButton: "Buscar",
     },
+    cards: {
+      province: "Provincia: ",
+      lastSeen: "Lugar donde fue visto por última vez ",
+      stopHour: "La hora de detencion ",
+      stopDate: "La fecha de detencion ",
+      lastReport: "Ultimo reporte indica ",
+      verification: "Verificación: ",
+    },
     pagination: {
       showMoreButton: "Mostrar Más",
     },
