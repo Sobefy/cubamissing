@@ -15,7 +15,7 @@ interface CardsGridProps {
 const CardsGrid = ({ translations, persons, isLoading }: CardsGridProps) => {
   return (
     <main>
-      <Box backgroundColor="brand.oceanBlue" py={8}>
+      <Box backgroundColor="brand.oceanBlue" py={8} pb={14}>
         <Container>
           <Grid
             templateColumns={{ base: "1fr", md: "1fr 1fr" }}

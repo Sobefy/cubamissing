@@ -2,6 +2,7 @@ import Head from "next/head";
 import useSWR from "swr";
 
 import CardsGrid from "../src/components/CardsGrid/CardsGrid";
+import Footer from "../src/components/Footer/Footer";
 import Hero from "../src/components/Hero/Hero";
 import Search from "../src/components/Search/Search";
 import Stats from "../src/components/Stats/Stats";
@@ -20,6 +21,7 @@ export default function Home() {
       stats,
       search,
       cards,
+      footer,
     },
   } = es;
 
@@ -47,6 +49,7 @@ export default function Home() {
         isLoading={isLoading}
         persons={formattedData}
       />
+      <Footer translations={footer} />
     </div>
   );
 }
