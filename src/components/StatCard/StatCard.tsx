@@ -1,0 +1,27 @@
+import { Stat, StatLabel, StatNumber } from "@chakra-ui/react";
+
+interface StatCardProps {
+  label: string;
+  number: number;
+}
+
+const StatCard = ({ label, number }: StatCardProps) => {
+  return (
+    <Stat
+      color="brand.oceanBlue"
+      p={6}
+      boxShadow="brand.whiteShadow"
+      background="white"
+      borderRadius={8}
+    >
+      <StatLabel fontSize="md" fontWeight="normal">
+        {label}
+      </StatLabel>
+      <StatNumber fontSize="4xl" fontWeight="bold">
+        {number}
+      </StatNumber>
+    </Stat>
+  );
+};
+
+export default StatCard;
