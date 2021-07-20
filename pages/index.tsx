@@ -7,7 +7,6 @@ import Hero from "../src/components/Hero/Hero";
 import Search from "../src/components/Search/Search";
 import Stats from "../src/components/Stats/Stats";
 import { googleSpreadsheetsAPIUrl, personsAPIUrl } from "../src/consts/consts";
-import mockedPersons from "../src/data/mockedPersons";
 import es from "../src/locales/es";
 import { formatPersonsReponse } from "../src/ultis/format";
 
