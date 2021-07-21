@@ -8,8 +8,10 @@ const es = {
     },
     stats: {
       dissapeared: "Desaparecidos",
-      released: "Liberados",
+      released: "En libertad",
       toVerify: "Por verificar",
+      detention: "En detención",
+      total: "Total",
     },
     search: {
       searchTitle: "Listado de personas desaparecidas.",
