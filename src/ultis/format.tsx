@@ -106,3 +106,17 @@ export const formatPersonsReponse = (data: personsResponse) => {
   }
   return null;
 };
+
+export const searchByName = (searchTerm: string, persons: person[] | null) => {
+  const results =
+    searchTerm && persons
+      ? persons.filter((person) => {
+          const { firstName, lastName } = person;
+          const fullName = `${firstName} ${lastName}`;
+          return fullName
+            .toLocaleLowerCase()
+            .includes(searchTerm.toLocaleLowerCase());
+        })
+      : [];
+  return results;
+};

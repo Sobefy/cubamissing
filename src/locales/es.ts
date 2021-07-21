@@ -3,20 +3,20 @@ const es = {
     head: { headTitle: "Cuba Missing", headDescription: "Cuba Missing" },
     hero: {
       title: "Ayudanos a encontrar a nuestros hermanos.",
-      subTitle: "The quick brown fox jumps over the lazy dog.",
       reportButton: "Reportar Desaparecido",
     },
     stats: {
       dissapeared: "Desaparecidos",
-      released: "Liberados",
+      released: "En libertad",
       toVerify: "Por verificar",
+      detention: "En detención",
+      total: "Total",
     },
     search: {
       searchTitle: "Listado de personas desaparecidas.",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "John Doe",
-      searchButton: "Buscar",
     },
     cards: {
       province: "Provincia: ",
