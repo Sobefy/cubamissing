@@ -112,16 +112,71 @@ export const formatPersonsReponse = (data: personsResponse) => {
   return null;
 };
 
-export const searchByName = (searchTerm: string, persons: person[] | null) => {
+export const searchByProperty = (
+  searchTerm: string,
+  persons: person[] | null,
+  property: "search" | "province" | "initial"
+) => {
   const results =
-    searchTerm && persons
+    searchTerm && persons && searchTerm !== "all"
       ? persons.filter((person) => {
-          const { firstName, lastName } = person;
-          const fullName = `${firstName} ${lastName}`;
-          return fullName
-            .toLocaleLowerCase()
-            .includes(searchTerm.toLocaleLowerCase());
+          const { firstName, lastName, province } = person;
+          let searchCriteria = "";
+          if (property === "search") {
+            searchCriteria = `${firstName} ${lastName}`;
+          }
+          if (property === "province") {
+            searchCriteria = `${province
+              .trim()
+              .toLowerCase()
+              .replace(/\s/g, "-")}`;
+          }
+          if (property === "initial") {
+            const firstLetter = firstName
+              ? firstName.charAt(0).toLowerCase()
+              : "";
+            return firstLetter === searchTerm.toLowerCase();
+          }
+          return searchCriteria
+            .trim()
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase());
         })
       : [];
   return results;
+};
+
+export const getAlphabet = () => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const alphaetArray = [];
+  alphaetArray.push({ id: "all", label: "Todas" });
+  alphabet.map((letter) => {
+    const currentLetter = {
+      id: letter,
+      label: letter.toUpperCase(),
+    };
+    alphaetArray.push(currentLetter);
+  });
+
+  return alphaetArray;
+};
+
+export const getUniqueProvinces = (persons: person[]) => {
+  const provinces = persons.map((person) => person.province.trim());
+  const filteredProvinces = provinces.filter(function (province) {
+    return province != "";
+  });
+  const uniqueProvinces = Array.from(
+    new Set(filteredProvinces.map((province) => province))
+  );
+  const provincesList = [];
+  provincesList.push({ id: "all", label: "Todas" });
+  uniqueProvinces.map((province) => {
+    const currentProvince = {
+      id: province.trim().toLowerCase().replace(/\s/g, "-"),
+      label: province,
+    };
+    provincesList.push(currentProvince);
+  });
+  return provincesList;
 };
