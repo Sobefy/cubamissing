@@ -28,15 +28,9 @@ const Stats = ({ translations }: StatsProps) => {
   );
 
   return (
-    <Box py={8}>
+    <Box py={4} background="gray">
       <Container>
-        <Grid
-          templateColumns={{ base: "1fr", md: "repeat(5, 1fr)" }}
-          columnGap={{ base: 0, md: 6 }}
-          rowGap={{ base: 6, md: 0 }}
-        >
-          <StatCard label={total} number={537} />
-        </Grid>
+        <StatCard label={total} number={537} />
       </Container>
     </Box>
   );

@@ -24,6 +24,7 @@ const Card = ({ person, translations }: CardProps) => {
     stopHour: stopHourLabel,
     stopDate: stopDateLabel,
     lastReport: lastReportLabel,
+    age: ageLabel,
     verification,
   } = translations;
 
@@ -51,9 +52,12 @@ const Card = ({ person, translations }: CardProps) => {
 
       </Box>
 
+      <Box>
+        <Text fontSize="3xl">{fullName}</Text>
+      </Box>
+
       <Flex mb={4}>
-        <Box>
-          <Text fontSize="3xl">{fullName}</Text>
+        <Box mr={4}>
           <Text>
             {provinceLabel}
             <Text as="span" color="brand.blue">
@@ -61,12 +65,15 @@ const Card = ({ person, translations }: CardProps) => {
             </Text>
           </Text>
         </Box>
+
+        <Box>
+          {ageLabel}
+          <Text as="span" color="brand.blue">
+            {age}
+          </Text>
+        </Box>
+
       </Flex>
-      <Box>
-        <Text as="p" color="brand.blue">
-          {age}
-        </Text>
-      </Box>
     </Box>
   );
 };
