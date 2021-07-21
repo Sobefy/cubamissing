@@ -36,11 +36,11 @@ const Stats = ({ translations }: StatsProps) => {
           rowGap={{ base: 6, md: 0 }}
           textAlign="center"
         >
-          <StatCard label={dissapeared} number={40} />
+          <StatCard label={dissapeared} number={37} />
           <StatCard label={released} number={87} />
-          <StatCard label={detention} number={118} />
-          <StatCard label={toVerify} number={292} />
-          <StatCard label={total} number={537} />
+          <StatCard label={detention} number={151} />
+          <StatCard label={toVerify} number={304} />
+          <StatCard label={total} number={584} />
 
         </Grid>
       </Container>
