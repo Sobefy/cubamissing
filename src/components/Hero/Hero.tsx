@@ -34,7 +34,7 @@ const Hero = ({ translations }: HeroProps) => {
             {reportButton}
           </Button>
         </Box>
-        <Box pt={20} pb={28}>
+        <Box pt={40} pb={40}>
 
         </Box>
       </Container>
