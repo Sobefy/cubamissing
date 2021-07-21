@@ -28,7 +28,7 @@ const Stats = ({ translations }: StatsProps) => {
   );
 
   return (
-    <Box py={8}>
+    <Box py={8} backgroundColor="#2350b2">
       <Container>
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(5, 1fr)" }}
