@@ -1,3 +1,4 @@
+import { Box, Grid, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import useSWR from "swr";
@@ -50,7 +51,7 @@ export default function Home() {
   const hasEmptyResults = searchTerm && results.length === 0 ? true : false;
 
   return (
-    <div>
+    <Box backgroundColor="brand.bgWhite">
       <Head>
         <title>{headTitle}</title>
         <meta name="description" content={headDescription} />
@@ -71,6 +72,6 @@ export default function Home() {
         searchTerm={searchTerm}
       />
       <Footer translations={footer} />
-    </div>
+    </Box>
   );
 }

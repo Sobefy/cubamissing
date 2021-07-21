@@ -48,7 +48,7 @@ const Search = ({ translations, queryParams, searchTerm }: SearchProps) => {
   };
 
   return (
-    <Box backgroundColor="brand.oceanBlue" py={8}>
+    <Box py={8}>
       <Container>
         <Flex
           color="white"

@@ -16,7 +16,7 @@ const StatCard = ({ label, number }: StatCardProps) => {
       <StatLabel fontSize="md" fontWeight="normal">
         {label}
       </StatLabel>
-      <StatNumber fontSize="4xl" fontWeight="bold" color="white">
+      <StatNumber fontSize="4xl" fontWeight="bold">
         {number}
       </StatNumber>
     </Stat>
