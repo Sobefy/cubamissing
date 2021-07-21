@@ -22,6 +22,7 @@ export interface cardTranslations {
   stopDate: string;
   lastReport: string;
   verification: string;
+  age: string;
 }
 
 export interface stringObject {

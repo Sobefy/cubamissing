@@ -10,7 +10,7 @@ const es = {
       released: "En libertad",
       toVerify: "Por verificar",
       detention: "En detención",
-      total: "Total",
+      total: "Total Verificados",
     },
     search: {
       searchTitle: "Listado de personas desaparecidas.",
@@ -25,6 +25,7 @@ const es = {
       stopDate: "La fecha de detencion ",
       lastReport: "Ultimo reporte indica ",
       verification: "Verificación: ",
+      age: "Edad: ",
     },
     pagination: {
       showMoreButton: "Mostrar Más",

@@ -11,7 +11,7 @@ const StatCard = ({ label, number }: StatCardProps) => {
       color="brand.oceanBlue"
       p={6}
       borderRadius={8}
-      textAlign={{ base: "center", md: "left" }}
+      textAlign={{ base: "center", md: "right" }}
     >
       <StatLabel fontSize="md" fontWeight="normal">
         {label}
