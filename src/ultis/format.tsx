@@ -21,6 +21,7 @@ const formatPersonResponseKey = (key: string) => {
     | "age"
     | "profession"
     | "skinTone"
+    | "image"
     | "" = "";
   let replacedKey = key.replace(personResponseObjectPattern, "");
 
@@ -64,6 +65,9 @@ const formatPersonResponseKey = (key: string) => {
     case "pielbnm":
       newKey = "skinTone";
       break;
+    case "fotografía":
+      newKey = "image";
+      break;
     default:
       break;
   }
@@ -90,6 +94,7 @@ export const formatPersonsReponse = (data: personsResponse) => {
         age: "",
         profession: "",
         skinTone: "",
+        image: "",
       };
       for (const key in row) {
         if (key.startsWith(personResponseObjectPattern)) {
