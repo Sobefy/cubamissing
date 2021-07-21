@@ -10,15 +10,13 @@ const StatCard = ({ label, number }: StatCardProps) => {
     <Stat
       color="brand.oceanBlue"
       p={6}
-      boxShadow="brand.whiteShadow"
-      background="white"
       borderRadius={8}
       textAlign={{ base: "center", md: "left" }}
     >
       <StatLabel fontSize="md" fontWeight="normal">
         {label}
       </StatLabel>
-      <StatNumber fontSize="4xl" fontWeight="bold">
+      <StatNumber fontSize="4xl" fontWeight="bold" color="white">
         {number}
       </StatNumber>
     </Stat>

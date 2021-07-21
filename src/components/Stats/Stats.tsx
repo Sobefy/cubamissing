@@ -35,10 +35,6 @@ const Stats = ({ translations }: StatsProps) => {
           columnGap={{ base: 0, md: 6 }}
           rowGap={{ base: 6, md: 0 }}
         >
-          <StatCard label={dissapeared} number={40} />
-          <StatCard label={released} number={87} />
-          <StatCard label={detention} number={118} />
-          <StatCard label={toVerify} number={292} />
           <StatCard label={total} number={537} />
         </Grid>
       </Container>
