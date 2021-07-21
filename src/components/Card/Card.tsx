@@ -41,7 +41,7 @@ const Card = ({ person, translations }: CardProps) => {
       <Box>
 
         <Image
-          alt="Cuba"
+          alt="Person's image"
           src="/placeholder.jpg"
           layout="responsive"
           width="150px"
@@ -52,7 +52,7 @@ const Card = ({ person, translations }: CardProps) => {
 
       </Box>
 
-      <Box py={10}>
+      <Box pt={5} pb={5}>
         <Text fontSize="2xl">{fullName}</Text>
       </Box>
 
