@@ -53,7 +53,7 @@ const Card = ({ person, translations }: CardProps) => {
       </Box>
 
       <Box pt={5} pb={5}>
-        <Text fontSize="2xl">{fullName}</Text>
+        <Text fontSize="3xl">{fullName}</Text>
       </Box>
 
       <Flex mb={4}>
