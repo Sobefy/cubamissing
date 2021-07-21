@@ -17,7 +17,7 @@ const Hero = ({ translations }: HeroProps) => {
         alt="Cuba"
         src="/hero-image.jpg"
         layout="fill"
-        objectFit="contain"
+        objectFit="cover"
         quality={100}
       />
       <Container>
@@ -35,7 +35,13 @@ const Hero = ({ translations }: HeroProps) => {
           </Button>
         </Box>
         <Box pt={40} pb={40}>
-
+          <Image
+            alt="Cuba"
+            src="/hero-image.svg"
+            layout="fill"
+            objectFit="contain"
+            quality={100}
+          />
         </Box>
       </Container>
     </Box>
