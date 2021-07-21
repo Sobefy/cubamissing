@@ -12,12 +12,12 @@ interface HeroProps {
 const Hero = ({ translations }: HeroProps) => {
   const { title, reportButton } = translations;
   return (
-    <Box textAlign="center" background="grey" py={6} position="relative">
+    <Box textAlign="center" background="white" py={20} position="relative">
       <Image
         alt="Cuba"
-        src="/hero.jpg"
+        src="/hero-image.svg"
         layout="fill"
-        objectFit="cover"
+        objectFit="contain"
         quality={100}
       />
       <Container>
@@ -35,15 +35,7 @@ const Hero = ({ translations }: HeroProps) => {
           </Button>
         </Box>
         <Box pt={20} pb={28}>
-          <Heading
-            as="h1"
-            color="white"
-            fontSize={{ base: "3xl", md: "5xl" }}
-            fontWeight="bold"
-            mb={4}
-          >
-            {title}
-          </Heading>
+
         </Box>
       </Container>
     </Box>

@@ -2,7 +2,7 @@ const es = {
   home: {
     head: { headTitle: "Cuba Missing", headDescription: "Cuba Missing" },
     hero: {
-      title: "Ayudanos a encontrar a nuestros hermanos.",
+      title: "CUBAMISSING",
       reportButton: "Reportar Desaparecido",
     },
     stats: {
