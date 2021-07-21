@@ -22,7 +22,7 @@ const CardsGrid = ({
 }: CardsGridProps) => {
   return (
     <main>
-      <Box backgroundColor="brand.oceanBlue" py={8} pb={14} px={8}>
+      <Box py={8} pb={14} px={8}>
         {isEmpty ? (
           <Text color="white">
             Sorry, there were no results for:
