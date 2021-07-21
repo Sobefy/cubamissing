@@ -21,19 +21,6 @@ const Hero = ({ translations }: HeroProps) => {
         quality={100}
       />
       <Container>
-        <Box display="flex" justifyContent="flex-end" width="full">
-          <Button
-            fontSize="xs"
-            fontWeight="semibold"
-            background="brand.blue"
-            rounded="md"
-            color="white"
-            size="md"
-            _hover={{ background: "brand.darkBlue" }}
-          >
-            {reportButton}
-          </Button>
-        </Box>
         <Box pt={40} pb={40}>
           <Image
             alt="Cuba"

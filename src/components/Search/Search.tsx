@@ -51,7 +51,7 @@ const Search = ({ translations, queryParams, searchTerm }: SearchProps) => {
     <Box py={8}>
       <Container>
         <Flex
-          color="white"
+          color="#2d2d2d"
           alignItems="center"
           textAlign="center"
           justifyContent="center"
@@ -67,7 +67,7 @@ const Search = ({ translations, queryParams, searchTerm }: SearchProps) => {
           >
             {searchTitle}
           </Heading>
-          <Text as="h2" color="brand.blueGrey" mb={4}>
+          <Text as="h2" color="brand.greyBlue" mb={4}>
             {searchIndication}
           </Text>
           <Flex width="full">

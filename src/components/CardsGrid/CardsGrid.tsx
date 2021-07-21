@@ -25,7 +25,7 @@ const CardsGrid = ({
       <Container>
         <Box py={8} pb={14}>
           {isEmpty ? (
-            <Text color="white">
+            <Text color="#2d2d2d">
               Sorry, there were no results for:
               <Text as="span" fontWeight="bold" ml={2}>
                 {searchTerm}
