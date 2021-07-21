@@ -16,7 +16,6 @@ const es = {
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "John Doe",
-      searchButton: "Buscar",
     },
     cards: {
       province: "Provincia: ",

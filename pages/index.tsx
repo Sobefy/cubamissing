@@ -9,7 +9,7 @@ import Search from "../src/components/Search/Search";
 import Stats from "../src/components/Stats/Stats";
 import { googleSpreadsheetsAPIUrl, personsAPIUrl } from "../src/consts/consts";
 import es from "../src/locales/es";
-import { formatPersonsReponse } from "../src/ultis/format";
+import { formatPersonsReponse, searchByName } from "../src/ultis/format";
 import { person } from "../src/types/types";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -40,7 +40,14 @@ export default function Home() {
     }
   }, [formattedData, persons]);
 
-  console.log("running");
+  const queryParams =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search)
+      : null;
+  const searchTerm = queryParams ? queryParams.get("search") ?? "" : "";
+  const results = searchByName(searchTerm, persons);
+  const hasFilteredResults = searchTerm && results.length > 0 ? true : false;
+  const hasEmptyResults = searchTerm && results.length === 0 ? true : false;
 
   return (
     <div>
@@ -51,8 +58,18 @@ export default function Home() {
       </Head>
       <Hero translations={hero} />
       <Stats translations={stats} />
-      <Search translations={search} />
-      <CardsGrid translations={cards} isLoading={isLoading} persons={persons} />
+      <Search
+        translations={search}
+        queryParams={queryParams}
+        searchTerm={searchTerm}
+      />
+      <CardsGrid
+        translations={cards}
+        isLoading={isLoading}
+        persons={hasFilteredResults ? results : persons}
+        isEmpty={hasEmptyResults}
+        searchTerm={searchTerm}
+      />
       <Footer translations={footer} />
     </div>
   );

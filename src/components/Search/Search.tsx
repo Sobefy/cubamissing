@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   Box,
   Button,
@@ -10,20 +11,41 @@ import {
 } from "@chakra-ui/react";
 import { UsersIcon } from "@heroicons/react/solid";
 
+import { person } from "../../types/types";
 import Container from "../Container/Container";
+import React, { useState } from "react";
 
 interface SearchProps {
   translations: {
     searchTitle: string;
     searchIndication: string;
     searchPlaceholder: string;
-    searchButton: string;
   };
+  searchTerm: string;
+  queryParams: URLSearchParams | null;
 }
 
-const Search = ({ translations }: SearchProps) => {
-  const { searchTitle, searchIndication, searchPlaceholder, searchButton } =
-    translations;
+const Search = ({ translations, queryParams, searchTerm }: SearchProps) => {
+  const { searchTitle, searchIndication, searchPlaceholder } = translations;
+  const router = useRouter();
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (queryParams) {
+      const newSearchTerm = e.target.value;
+      router.replace(
+        {
+          query: {
+            search: newSearchTerm.trim(),
+          },
+        },
+        undefined,
+        {
+          scroll: false,
+          shallow: true,
+        }
+      );
+    }
+  };
 
   return (
     <Box backgroundColor="brand.oceanBlue" py={8}>
@@ -64,19 +86,10 @@ const Search = ({ translations }: SearchProps) => {
                 placeholder={searchPlaceholder}
                 backgroundColor="white"
                 color="brand.blueGrey"
+                value={searchTerm}
+                onChange={handleSearch}
               />
             </InputGroup>
-            <Button
-              fontSize="xs"
-              fontWeight="semibold"
-              background="brand.blue"
-              rounded="md"
-              color="white"
-              size="md"
-              _hover={{ background: "brand.darkBlue" }}
-            >
-              {searchButton}
-            </Button>
           </Flex>
         </Flex>
       </Container>

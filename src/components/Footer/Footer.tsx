@@ -24,7 +24,12 @@ const Footer = ({ translations }: FooterProps) => {
           alignItems="center"
           flexDirection={{ base: "column", md: "row" }}
         >
-          <Text as="span" color="brand.blueGrey" mb={{ base: 4, md: 0 }}>
+          <Text
+            as="span"
+            color="brand.blueGrey"
+            mb={{ base: 4, md: 0 }}
+            mr={{ base: 0, md: 8 }}
+          >
             {email}
           </Text>
           <Button
