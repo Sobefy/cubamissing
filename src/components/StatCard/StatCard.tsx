@@ -8,10 +8,11 @@ interface StatCardProps {
 const StatCard = ({ label, number }: StatCardProps) => {
   return (
     <Stat
+      bgColor="brand.bgWhite"
       color="brand.oceanBlue"
       p={6}
       borderRadius={8}
-      textAlign={{ base: "center", md: "right" }}
+      textAlign={{ base: "center", md: "center" }}
     >
       <StatLabel fontSize="md" fontWeight="normal">
         {label}

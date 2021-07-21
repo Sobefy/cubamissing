@@ -1,15 +1,15 @@
 import { theme as chakraTheme } from "@chakra-ui/react";
 
 const inter = `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
-const raleway = "Poppins";
-const openSans = "Open Sans";
+const poppins = "Poppins";
+const karla = "Karla";
 
 const theme = {
   ...chakraTheme,
   fonts: {
     ...chakraTheme.fonts,
-    heading: raleway,
-    body: openSans,
+    heading: poppins,
+    body: karla,
   },
   colors: {
     ...chakraTheme.colors,

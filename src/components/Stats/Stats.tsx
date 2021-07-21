@@ -28,9 +28,21 @@ const Stats = ({ translations }: StatsProps) => {
   );
 
   return (
-    <Box py={4} background="gray">
+    <Box py={8} backgroundColor="#2350b2">
       <Container>
-        <StatCard label={total} number={537} />
+        <Grid
+          templateColumns={{ base: "1fr", md: "repeat(5, 1fr)" }}
+          columnGap={{ base: 0, md: 6 }}
+          rowGap={{ base: 6, md: 0 }}
+          textAlign="center"
+        >
+          <StatCard label={dissapeared} number={37} />
+          <StatCard label={released} number={87} />
+          <StatCard label={detention} number={151} />
+          <StatCard label={toVerify} number={304} />
+          <StatCard label={total} number={584} />
+
+        </Grid>
       </Container>
     </Box>
   );
