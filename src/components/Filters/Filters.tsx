@@ -4,25 +4,54 @@ import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import Container from "../Container/Container";
 import Search from "../Search/Search";
 import SelectFilter from "./SelectFilter/SelectFilter";
-import { getAlphabet } from "../../ultis/format";
+import { getAlphabet, getUniqueProvinces } from "../../ultis/format";
+import { person } from "../../types/types";
 
 interface FilterProps {
   translations: {
     searchTitle: string;
     searchIndication: string;
     searchPlaceholder: string;
+    provinceFilter: string;
+    firstLetterFilter: string;
+    searchFilter: string;
   };
   searchTerm: string;
+  provinceTerm: string;
+  initialTerm: string;
   queryParams: URLSearchParams | null;
+  persons: person[] | null;
 }
 
 export const Filters = ({
   translations,
   searchTerm,
+  provinceTerm,
+  initialTerm,
   queryParams,
+  persons,
 }: FilterProps) => {
-  const { searchTitle, searchIndication, searchPlaceholder } = translations;
+  const {
+    searchTitle,
+    searchIndication,
+    searchPlaceholder,
+    provinceFilter,
+    firstLetterFilter,
+    searchFilter,
+  } = translations;
   const router = useRouter();
+
+  const alphabetArray = getAlphabet();
+  const provincesArray = persons ? getUniqueProvinces(persons) : [];
+  const paramsObject: {
+    [key: string]: string | null;
+  } = {};
+
+  if (queryParams) {
+    for (var value of queryParams.keys()) {
+      paramsObject[value] = queryParams.get(value);
+    }
+  }
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (queryParams) {
@@ -42,8 +71,41 @@ export const Filters = ({
     }
   };
 
-  const handleSelectFilter = () => {};
-  const alphabetArray = getAlphabet();
+  const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (queryParams) {
+      const newSearchTerm = e.target.value;
+      router.replace(
+        {
+          query: {
+            province: newSearchTerm.trim(),
+          },
+        },
+        undefined,
+        {
+          scroll: false,
+          shallow: true,
+        }
+      );
+    }
+  };
+
+  const handleChangeAlphabet = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (queryParams) {
+      const newSearchTerm = e.target.value;
+      router.replace(
+        {
+          query: {
+            initial: newSearchTerm.trim(),
+          },
+        },
+        undefined,
+        {
+          scroll: false,
+          shallow: true,
+        }
+      );
+    }
+  };
 
   return (
     <Box py={8}>
@@ -73,11 +135,22 @@ export const Filters = ({
           <Grid width="full" templateColumns="50% 25% 25%" columnGap={8}>
             <Search
               handleSearch={handleSearch}
-              searchTerm={searchTerm}
+              value={searchTerm}
               placeholder={searchPlaceholder}
+              searchFilter={searchFilter}
             />
-            <SelectFilter label="Provincia" options={alphabetArray} />
-            <SelectFilter label="Primera inicial" options={alphabetArray} />
+            <SelectFilter
+              label={provinceFilter}
+              options={provincesArray}
+              onChange={handleChangeFilter}
+              value={provinceTerm}
+            />
+            <SelectFilter
+              label={firstLetterFilter}
+              options={alphabetArray}
+              onChange={handleChangeAlphabet}
+              value={initialTerm}
+            />
           </Grid>
         </Box>
       </Container>

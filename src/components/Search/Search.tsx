@@ -8,15 +8,21 @@ import {
 import { UsersIcon } from "@heroicons/react/solid";
 
 interface SearchProps {
+  searchFilter: string;
   placeholder: string;
-  searchTerm: string;
+  value: string;
   handleSearch(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-const Search = ({ placeholder, searchTerm, handleSearch }: SearchProps) => {
+const Search = ({
+  searchFilter,
+  placeholder,
+  value,
+  handleSearch,
+}: SearchProps) => {
   return (
     <Box>
-      <FormLabel fontSize="sm">Nombre y Apellido</FormLabel>
+      <FormLabel fontSize="sm">{searchFilter}</FormLabel>
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
@@ -28,7 +34,7 @@ const Search = ({ placeholder, searchTerm, handleSearch }: SearchProps) => {
         <Input
           placeholder={placeholder}
           backgroundColor="white"
-          value={searchTerm}
+          value={value}
           onChange={handleSearch}
         />
       </InputGroup>

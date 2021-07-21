@@ -8,15 +8,23 @@ interface SelectFilterProps {
         label: string;
       }[]
     | null;
+  value: string;
+  onChange(e: React.ChangeEvent<HTMLSelectElement>): void;
 }
 
-const SelectFilter = ({ label, options }: SelectFilterProps) => {
+const SelectFilter = ({
+  label,
+  options,
+  onChange,
+  value,
+}: SelectFilterProps) => {
+  const selectedValue = value || "all";
   return (
     <>
       {options ? (
         <Box>
           <FormLabel fontSize="sm">{label}</FormLabel>
-          <Select>
+          <Select onChange={onChange} value={selectedValue}>
             {options.map((option) => (
               <option key={option.id} value={option.id}>
                 {option.label}
