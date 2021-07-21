@@ -6,7 +6,7 @@ interface ContainerProps {
 
 const Container = ({ children }: ContainerProps) => {
   return (
-    <ChakraContainer maxW="container.lg" mx="auto" position="relative">
+    <ChakraContainer maxW="1400px" mx="auto" position="relative">
       {children}
     </ChakraContainer>
   );
