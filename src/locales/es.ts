@@ -13,17 +13,17 @@ const es = {
       total: "Total",
     },
     search: {
-      searchTitle: "Listado de personas desaparecidas.",
+      searchTitle: "LISTADO DE PERSONAS REPORTADAS COMO DESAPARECIDAS",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
-      searchPlaceholder: "John Doe",
+      searchPlaceholder: "Escribe el primer nombre de la persona",
     },
     cards: {
       province: "Provincia: ",
       lastSeen: "Lugar donde fue visto por última vez: ",
       stopHour: "La hora de detencion: ",
       stopDate: "Fecha de detencion: ",
-      lastReport: "Ultimo reporte indica: ",
+      lastReport: "Ultimo reporte: ",
       verification: "Verificación: ",
       age: "Edad: ",
     },
