@@ -52,11 +52,12 @@ const Card = ({ person, translations }: CardProps) => {
 
       </Box>
 
-      <Box>
-        <Text fontSize="3xl">{fullName}</Text>
+      <Box py={10}>
+        <Text fontSize="2xl">{fullName}</Text>
       </Box>
 
       <Flex mb={4}>
+
         <Box mr={4}>
           <Text>
             {provinceLabel}
