@@ -120,3 +120,18 @@ export const searchByName = (searchTerm: string, persons: person[] | null) => {
       : [];
   return results;
 };
+
+export const getAlphabet = () => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const alphaetArray = [];
+  alphaetArray.push({ id: "all", label: "Todas" });
+  alphabet.map((letter) => {
+    const currentLetter = {
+      id: letter,
+      label: letter.toUpperCase(),
+    };
+    alphaetArray.push(currentLetter);
+  });
+
+  return alphaetArray;
+};
