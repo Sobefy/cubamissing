@@ -1,4 +1,10 @@
-import { Box, Grid, Stat, StatLabel, StatNumber, Text } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
+import useSWR from "swr";
+import {
+  googleSpreadsheetsAPIUrl,
+  personsAPIUrlPage2,
+} from "../../consts/consts";
+
 import Container from "../Container/Container";
 import StatCard from "../StatCard/StatCard";
 
@@ -12,8 +18,14 @@ interface StatsProps {
   };
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const Stats = ({ translations }: StatsProps) => {
   const { dissapeared, released, toVerify, detention, total } = translations;
+  const { data, error } = useSWR(
+    `${googleSpreadsheetsAPIUrl}${personsAPIUrlPage2}`,
+    fetcher
+  );
 
   return (
     <Box backgroundColor="brand.oceanBlue" py={8}>
@@ -23,11 +35,11 @@ const Stats = ({ translations }: StatsProps) => {
           columnGap={{ base: 0, md: 6 }}
           rowGap={{ base: 6, md: 0 }}
         >
-          <StatCard label={dissapeared} number={500} />
-          <StatCard label={released} number={20} />
-          <StatCard label={detention} number={200} />
-          <StatCard label={toVerify} number={200} />
-          <StatCard label={total} number={200} />
+          <StatCard label={dissapeared} number={40} />
+          <StatCard label={released} number={87} />
+          <StatCard label={detention} number={118} />
+          <StatCard label={toVerify} number={292} />
+          <StatCard label={total} number={537} />
         </Grid>
       </Container>
     </Box>
