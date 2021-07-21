@@ -5,13 +5,12 @@ import Container from "../Container/Container";
 interface HeroProps {
   translations: {
     title: string;
-    subTitle: string;
     reportButton: string;
   };
 }
 
 const Hero = ({ translations }: HeroProps) => {
-  const { title, subTitle, reportButton } = translations;
+  const { title, reportButton } = translations;
   return (
     <Box textAlign="center" background="grey" py={6} position="relative">
       <Image
@@ -35,20 +34,16 @@ const Hero = ({ translations }: HeroProps) => {
             {reportButton}
           </Button>
         </Box>
-        <Box maxW="lg" mx="auto" pt={20} pb={28}>
+        <Box pt={20} pb={28}>
           <Heading
             as="h1"
             color="white"
-            fontSize={{ base: "3xl", md: "4xl" }}
+            fontSize={{ base: "3xl", md: "5xl" }}
             fontWeight="bold"
-            lineHeight="inherit"
             mb={4}
           >
             {title}
           </Heading>
-          <Text as="h2" color="brand.blueGrey">
-            {subTitle}
-          </Text>
         </Box>
       </Container>
     </Box>

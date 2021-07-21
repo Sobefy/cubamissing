@@ -3,7 +3,6 @@ const es = {
     head: { headTitle: "Cuba Missing", headDescription: "Cuba Missing" },
     hero: {
       title: "Ayudanos a encontrar a nuestros hermanos.",
-      subTitle: "The quick brown fox jumps over the lazy dog.",
       reportButton: "Reportar Desaparecido",
     },
     stats: {
