@@ -13,6 +13,7 @@ export interface person {
   age: string;
   profession: string;
   skinTone: string;
+  image: string;
 }
 
 export interface cardTranslations {

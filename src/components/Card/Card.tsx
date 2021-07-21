@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { Box, Flex, SkeletonCircle, Text } from "@chakra-ui/react";
 import { cardTranslations, person } from "../../types/types";
@@ -17,6 +18,7 @@ const Card = ({ person, translations }: CardProps) => {
     stopDate,
     lastReport,
     age,
+    image,
   } = person;
   const {
     province: provinceLabel,
@@ -29,6 +31,7 @@ const Card = ({ person, translations }: CardProps) => {
   } = translations;
 
   const fullName = `${firstName} ${lastName}`;
+  const imageURL = image || "/placeholder.jpg";
 
   return (
     <Box
@@ -39,17 +42,7 @@ const Card = ({ person, translations }: CardProps) => {
       borderRadius={8}
     >
       <Box>
-
-        <Image
-          alt="Person's image"
-          src="/placeholder.jpg"
-          layout="responsive"
-          width="150px"
-          height="150px"
-          objectFit="cover"
-          quality={100}
-        />
-
+        <img alt="Person's image" src={imageURL} width="100%" />
       </Box>
 
       <Box pt={5} pb={5}>
@@ -57,7 +50,6 @@ const Card = ({ person, translations }: CardProps) => {
       </Box>
 
       <Flex mb={4}>
-
         <Box mr={4}>
           <Text>
             {provinceLabel}
@@ -91,7 +83,6 @@ const Card = ({ person, translations }: CardProps) => {
           </Text>
         </Text>
       </Flex>
-
     </Box>
   );
 };
