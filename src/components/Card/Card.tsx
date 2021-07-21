@@ -73,8 +73,25 @@ const Card = ({ person, translations }: CardProps) => {
             {age}
           </Text>
         </Box>
-
       </Flex>
+
+      <Flex>
+        <Text>
+          {stopDateLabel}
+          <Text as="span" color="brand.blue">
+            {stopDate}
+          </Text>
+        </Text>
+      </Flex>
+      <Flex>
+        <Text>
+          {lastReportLabel}
+          <Text as="span" color="brand.blue">
+            {lastReport}
+          </Text>
+        </Text>
+      </Flex>
+
     </Box>
   );
 };
