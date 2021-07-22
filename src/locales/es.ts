@@ -9,7 +9,7 @@ const es = {
       toVerify: "Paradero desconocido / Whereabouts unknown",
       dissapeared: "Desaparicion confirmada / Confirmed missing",
       detention: "Arrestado / Arrested",
-      released: "Liberado / Released",
+      released: "Liberados / Released",
       total: "Total",
     },
     search: {

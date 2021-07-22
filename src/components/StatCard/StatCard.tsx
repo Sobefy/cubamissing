@@ -16,12 +16,12 @@ const StatCard = ({ label, number, gridColumn }: StatCardProps) => {
       textAlign={{ base: "center", md: "center" }}
       gridColumn={{ base: gridColumn, md: "auto" }}
     >
-      <StatLabel fontSize="md" fontWeight="normal">
-        {label}
-      </StatLabel>
       <StatNumber fontSize="4xl" fontWeight="bold">
         {number}
       </StatNumber>
+      <StatLabel fontSize="md" fontWeight="normal">
+        {label}
+      </StatLabel>
     </Stat>
   );
 };
