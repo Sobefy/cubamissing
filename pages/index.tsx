@@ -12,6 +12,7 @@ import es from "../src/locales/es";
 import { formatPersonsReponse, searchByProperty } from "../src/ultis/format";
 import { person } from "../src/types/types";
 import Filters from "../src/components/Filters/Filters";
+import usePerson from "../src/hooks/usePerson";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -27,19 +28,7 @@ export default function Home() {
     },
   } = es;
 
-  const { data, error } = useSWR(
-    `${googleSpreadsheetsAPIUrl}${personsAPIUrl}`,
-    fetcher
-  );
-  const formattedData = formatPersonsReponse(data);
-  const isLoading = !error && !formattedData;
-  const [persons, setPersons] = useState<person[] | null>(null);
-
-  useEffect(() => {
-    if (formattedData && !persons) {
-      setPersons(formattedData);
-    }
-  }, [formattedData, persons]);
+  const { persons, isLoading } = usePerson();
 
   const queryParams =
     typeof window !== "undefined"

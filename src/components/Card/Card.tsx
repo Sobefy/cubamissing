@@ -5,11 +5,20 @@ import { cardTranslations, person } from "../../types/types";
 interface CardProps {
   person: person;
   translations: cardTranslations;
+  onClick(id: string): void;
 }
 
-const Card = ({ person, translations }: CardProps) => {
-  const { firstName, lastName, province, stopDate, lastReport, age, image } =
-    person;
+const Card = ({ person, translations, onClick }: CardProps) => {
+  const {
+    firstName,
+    lastName,
+    province,
+    stopDate,
+    lastReport,
+    age,
+    image,
+    id,
+  } = person;
   const {
     province: provinceLabel,
     stopDate: stopDateLabel,
@@ -28,6 +37,9 @@ const Card = ({ person, translations }: CardProps) => {
       boxShadow="brand.whiteShadow"
       borderRadius={8}
       width="full"
+      onClick={() => onClick(id)}
+      cursor="pointer"
+      _hover={{ boxShadow: "xl" }}
     >
       <Box width="full">
         <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />

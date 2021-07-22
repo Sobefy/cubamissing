@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 import { Box, Grid, Text } from "@chakra-ui/react";
+
 import Container from "../Container/Container";
 import { cardTranslations, person } from "../../types/types";
 import Card from "../Card/Card";
@@ -20,6 +22,12 @@ const CardsGrid = ({
   isEmpty,
   searchTerm,
 }: CardsGridProps) => {
+  const router = useRouter();
+
+  const handleCardClick = (id: string) => {
+    router.push(`/person/${id}`);
+  };
+
   return (
     <main>
       <Container>
@@ -44,6 +52,7 @@ const CardsGrid = ({
                       key={person.id}
                       person={person}
                       translations={translations}
+                      onClick={handleCardClick}
                     />
                   ))}
                 </>

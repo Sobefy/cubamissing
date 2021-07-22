@@ -1,5 +1,3 @@
-import { v4 as uuid_v4 } from "uuid";
-
 import {
   personResponseObjectPattern,
   personResponseObjectProperty,
@@ -8,6 +6,7 @@ import { person, personsResponse } from "../types/types";
 
 const formatPersonResponseKey = (key: string) => {
   let newKey:
+    | "id"
     | "firstName"
     | "lastName"
     | "province"
@@ -68,6 +67,9 @@ const formatPersonResponseKey = (key: string) => {
     case "fotografía":
       newKey = "image";
       break;
+    case "id":
+      newKey = "id";
+      break;
     default:
       break;
   }
@@ -80,7 +82,7 @@ export const formatPersonsReponse = (data: personsResponse) => {
     const rows = data.feed.entry;
     for (const row of rows) {
       const newRow: person = {
-        id: uuid_v4(),
+        id: "",
         firstName: "",
         lastName: "",
         lastSeen: "",
@@ -97,14 +99,16 @@ export const formatPersonsReponse = (data: personsResponse) => {
         image: "",
       };
       for (const key in row) {
-        if (key.startsWith(personResponseObjectPattern)) {
-          const newKey = formatPersonResponseKey(key);
-          const newValue = row[key][personResponseObjectProperty];
-          if (newKey) {
-            newRow[newKey] = newValue;
-          }
+        const newKey = formatPersonResponseKey(key);
+        const newValue = row[key][personResponseObjectProperty];
+        if (newKey) {
+          newRow[newKey] = newValue;
         }
       }
+      const splittedId = newRow.id.split("/");
+      const formattedId = splittedId[splittedId.length - 1];
+      newRow.id = formattedId;
+
       formatted.push(newRow);
     }
     return formatted;
