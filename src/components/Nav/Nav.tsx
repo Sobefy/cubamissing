@@ -10,7 +10,13 @@ const Nav = () => {
   };
 
   return (
-    <Box height="120px" boxShadow="md">
+    <Box
+      height="120px"
+      boxShadow="md"
+      zIndex={1}
+      position="relative"
+      backgroundColor="white"
+    >
       <Center py="10px">
         <Box cursor="pointer" onClick={handleClick}>
           <Image

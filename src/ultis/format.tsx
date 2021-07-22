@@ -1,4 +1,5 @@
 import {
+  emptyPerson,
   personResponseObjectPattern,
   personResponseObjectProperty,
 } from "../consts/consts";
@@ -81,23 +82,7 @@ export const formatPersonsReponse = (data: personsResponse) => {
     const formatted = [];
     const rows = data.feed.entry;
     for (const row of rows) {
-      const newRow: person = {
-        id: "",
-        firstName: "",
-        lastName: "",
-        lastSeen: "",
-        province: "",
-        stopHour: "",
-        stopDate: "",
-        lastReport: "",
-        verification: "",
-        gender: "",
-        birthDate: "",
-        age: "",
-        profession: "",
-        skinTone: "",
-        image: "",
-      };
+      const newRow = emptyPerson;
       for (const key in row) {
         const newKey = formatPersonResponseKey(key);
         const newValue = row[key][personResponseObjectProperty];
