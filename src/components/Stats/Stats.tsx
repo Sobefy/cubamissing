@@ -31,17 +31,16 @@ const Stats = ({ translations }: StatsProps) => {
     <Box py={8} backgroundColor="#2350b2">
       <Container>
         <Grid
-          templateColumns={{ base: "1fr", md: "repeat(5, 1fr)" }}
-          columnGap={{ base: 0, md: 6 }}
+          templateColumns={{ base: "repeat(4, 1fr)", md: "repeat(5, 1fr)" }}
+          columnGap={{ base: 4, md: 6 }}
           rowGap={{ base: 6, md: 0 }}
           textAlign="center"
         >
-          <StatCard label={dissapeared} number={37} />
-          <StatCard label={released} number={87} />
-          <StatCard label={detention} number={151} />
-          <StatCard label={toVerify} number={304} />
-          <StatCard label={total} number={584} />
-
+          <StatCard label={dissapeared} number={37} gridColumn="1/3" />
+          <StatCard label={released} number={87} gridColumn="3/5" />
+          <StatCard label={detention} number={151} gridColumn="1/3" />
+          <StatCard label={toVerify} number={304} gridColumn="3/5" />
+          <StatCard label={total} number={584} gridColumn="1/5" />
         </Grid>
       </Container>
     </Box>
