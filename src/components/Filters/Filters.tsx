@@ -116,11 +116,11 @@ export const Filters = ({
           textAlign="center"
           justifyContent="center"
           flexDirection="column"
-          maxW="lg"
+          maxW="xl"
           mx="auto"
         >
           <Heading
-            fontSize={{ base: "3xl", md: "4xl" }}
+            fontSize={{ base: "2xl", md: "2xl" }}
             fontWeight="bold"
             lineHeight="inherit"
             mb={4}

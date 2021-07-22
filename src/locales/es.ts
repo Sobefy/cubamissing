@@ -6,14 +6,14 @@ const es = {
       reportButton: "Reportar Desaparecido",
     },
     stats: {
-      toVerify: "Verificando",
-      dissapeared: "En desaparición forzada",
-      detention: "En detención",
-      released: "En libertad",
+      toVerify: "Paradero desconocido / Whereabouts unknown",
+      dissapeared: "Desaparicion confirmada / Confirmed missing",
+      detention: "Arrestado / Arrested",
+      released: "Liberado / Released",
       total: "Total",
     },
     search: {
-      searchTitle: "LISTADO DE PERSONAS REPORTADAS COMO DESAPARECIDAS",
+      searchTitle: "DESAPARECIDOS DESDE LAS PROTESTAS DEL 11J / MISSING SINCE JULY 11TH PROTESTS",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "Escribe el primer nombre de la persona",

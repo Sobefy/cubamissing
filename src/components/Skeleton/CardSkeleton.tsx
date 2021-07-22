@@ -9,7 +9,6 @@ import {
 const CardSkeleton = () => {
   return (
     <Box
-      backgroundColor="white"
       px={6}
       py={10}
       boxShadow="brand.whiteShadow"
