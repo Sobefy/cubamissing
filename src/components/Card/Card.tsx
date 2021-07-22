@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import { Box, Flex, SkeletonCircle, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { cardTranslations, person } from "../../types/types";
 
 interface CardProps {
@@ -9,25 +8,13 @@ interface CardProps {
 }
 
 const Card = ({ person, translations }: CardProps) => {
-  const {
-    firstName,
-    lastName,
-    province,
-    lastSeen,
-    stopHour,
-    stopDate,
-    lastReport,
-    age,
-    image,
-  } = person;
+  const { firstName, lastName, province, stopDate, lastReport, age, image } =
+    person;
   const {
     province: provinceLabel,
-    lastSeen: lastSeenLabel,
-    stopHour: stopHourLabel,
     stopDate: stopDateLabel,
     lastReport: lastReportLabel,
     age: ageLabel,
-    verification,
   } = translations;
 
   const fullName = `${firstName} ${lastName}`;
@@ -40,33 +27,30 @@ const Card = ({ person, translations }: CardProps) => {
       py={10}
       boxShadow="brand.whiteShadow"
       borderRadius={8}
+      width="full"
     >
-      <Box>
-        <img alt="Person's image" src={imageURL} width="100%" />
+      <Box width="full">
+        <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
       </Box>
-
       <Box pt={5} pb={5}>
-        <Text fontSize="3xl">{fullName}</Text>
+        <Text fontSize="3xl" wordBreak="break-word">
+          {fullName}
+        </Text>
       </Box>
-
       <Flex mb={4}>
-        <Box mr={4}>
+        <Box>
           <Text>
             {provinceLabel}
             <Text as="span" color="brand.blue">
               {province}
             </Text>
-          </Text>
-        </Box>
-
-        <Box>
-          {ageLabel}
-          <Text as="span" color="brand.blue">
-            {age}
+            {`. ${ageLabel}`}
+            <Text as="span" color="brand.blue">
+              {age}
+            </Text>
           </Text>
         </Box>
       </Flex>
-
       <Flex>
         <Text>
           {stopDateLabel}

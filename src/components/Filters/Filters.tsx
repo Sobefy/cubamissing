@@ -132,7 +132,12 @@ export const Filters = ({
           </Text>
         </Flex>
         <Box>
-          <Grid width="full" templateColumns="50% 25% 25%" columnGap={8}>
+          <Grid
+            width="full"
+            templateColumns={{ base: "1fr", md: "1fr .5fr .5fr" }}
+            columnGap={8}
+            rowGap={{ base: 4, md: 0 }}
+          >
             <Search
               handleSearch={handleSearch}
               value={searchTerm}
