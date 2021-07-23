@@ -23,6 +23,8 @@ const StatCard = ({ label, number, gridColumn }: StatCardProps) => {
         {label}
       </StatLabel>
     </Stat>
+
+
   );
 };
 
