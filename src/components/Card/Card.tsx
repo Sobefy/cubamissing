@@ -40,13 +40,13 @@ const Card = ({ person, translations }: CardProps) => {
       <Flex mb={4}>
         <Box>
           <Text>
-            {provinceLabel}
-            <Text as="span" color="brand.blue">
-              {province}
-            </Text>
             {`. ${ageLabel}`}
             <Text as="span" color="brand.blue">
               {age}
+            </Text>
+            {provinceLabel}
+            <Text as="span" color="brand.blue">
+              {province}
             </Text>
           </Text>
         </Box>
