@@ -29,7 +29,7 @@ const Card = ({ person, translations }: CardProps) => {
       borderRadius={8}
       width="full"
     >
-      <Box width="full">
+      <Box width="full" boxShadow="brand.innerShadow">
         <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
       </Box>
       <Box pt={5} pb={5}>
@@ -50,14 +50,6 @@ const Card = ({ person, translations }: CardProps) => {
             </Text>
           </Text>
         </Box>
-      </Flex>
-      <Flex>
-        <Text>
-          {stopDateLabel}
-          <Text as="span" color="brand.blue">
-            {stopDate}
-          </Text>
-        </Text>
       </Flex>
       <Flex>
         <Text>
