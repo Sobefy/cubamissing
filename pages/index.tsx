@@ -79,11 +79,16 @@ export default function Home() {
     <Box backgroundColor="brand.bgWhite">
       <Head>
         <title>Cubamissing.com | Ayudanos a encontrar a nuestros hermanos</title>
+        <meta name="description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
+luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." />
+
+
         <meta property="og:title" content="Cubamissing.com | Ayudanos a encontrar a nuestros hermanos" key="title" />
         <meta property="og:description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
 luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." key="description" />
-        <meta name="description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
-luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." />
+
+        <meta property="og:image" content="/og-image.jpg" />
+
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
