@@ -67,8 +67,8 @@ export default function Home() {
 
   const hasSearchTerms =
     searchTerm ||
-    (provinceTerm && provinceTerm !== "all") ||
-    (initialTerm && initialTerm !== "all")
+      (provinceTerm && provinceTerm !== "all") ||
+      (initialTerm && initialTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -78,8 +78,13 @@ export default function Home() {
   return (
     <Box backgroundColor="brand.bgWhite">
       <Head>
-        <title>{headTitle}</title>
-        <meta name="description" content={headDescription} />
+        <title>Cubamissing.com | Ayudanos a encontrar a nuestros hermanos</title>
+        <meta property="og:title" content="Cubamissing.com | Ayudanos a encontrar a nuestros hermanos" key="title" />
+        <meta property="og:description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
+luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." key="description" />
+        <meta name="description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
+luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero translations={hero} />
