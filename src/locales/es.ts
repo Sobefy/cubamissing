@@ -16,7 +16,7 @@ const es = {
       searchTitle: "DESAPARECIDOS DESDE LAS PROTESTAS DEL 11J / MISSING SINCE JULY 11TH PROTESTS",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
-      searchPlaceholder: "Escribe el primer nombre de la persona",
+      searchPlaceholder: "Escribe el nombre de la persona",
       searchFilter: "Buscar por nombre",
       provinceFilter: "Provincia",
       firstLetterFilter: "Primera inicial",
