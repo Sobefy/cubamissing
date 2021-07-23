@@ -88,6 +88,8 @@ luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y
 luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." key="description" />
 
         <meta property="og:image" content="/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
 
         <link rel="icon" href="/favicon.ico" />
