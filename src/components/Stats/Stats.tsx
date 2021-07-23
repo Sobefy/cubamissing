@@ -37,10 +37,10 @@ const Stats = ({ translations }: StatsProps) => {
           textAlign="center"
         >
           <StatCard label={dissapeared} number={36} gridColumn="1/3" />
-          <StatCard label={released} number={116} gridColumn="3/5" />
-          <StatCard label={detention} number={181} gridColumn="1/3" />
-          <StatCard label={toVerify} number={300} gridColumn="3/5" />
-          <StatCard label={total} number={633} gridColumn="1/5" />
+          <StatCard label={released} number={119} gridColumn="3/5" />
+          <StatCard label={detention} number={265} gridColumn="1/3" />
+          <StatCard label={toVerify} number={224} gridColumn="3/5" />
+          <StatCard label={total} number={644} gridColumn="1/5" />
         </Grid>
       </Container>
     </Box>
