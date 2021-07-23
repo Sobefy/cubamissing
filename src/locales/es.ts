@@ -7,7 +7,7 @@ const es = {
     },
     stats: {
       toVerify: "Paradero desconocido / Whereabouts unknown",
-      dissapeared: "Desaparicion confirmada / Confirmed missing",
+      dissapeared: "Desaparición confirmada / Confirmed missing",
       detention: "Arrestado / Arrested",
       released: "Liberados / Released",
       total: "Total",
