@@ -17,7 +17,7 @@ const es = {
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "Escribe el primer nombre de la persona",
-      searchFilter: "Nombre y Apellido",
+      searchFilter: "Buscar por nombre",
       provinceFilter: "Provincia",
       firstLetterFilter: "Primera inicial",
     },
