@@ -37,20 +37,23 @@ const Card = ({ person, translations }: CardProps) => {
           {fullName}
         </Text>
       </Box>
-      <Flex mb={4}>
-        <Box>
-          <Text>
-            {`. ${ageLabel}`}
-            <Text as="span" color="brand.blue">
-              {age}
-            </Text>
-            {provinceLabel}
-            <Text as="span" color="brand.blue">
-              {province}
-            </Text>
+      <Box>
+
+        <Text>
+          {ageLabel}
+          <Text as="span" color="brand.blue">
+            {age}
           </Text>
-        </Box>
-      </Flex>
+        </Text>
+
+        <Text>
+          {provinceLabel}
+          <Text as="span" color="brand.blue">
+            {province}
+          </Text>
+        </Text>
+      </Box>
+
       <Flex>
         <Text>
           {lastReportLabel}
