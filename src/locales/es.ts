@@ -26,7 +26,7 @@ const es = {
       lastSeen: "Lugar donde fue visto por última vez: ",
       stopHour: "La hora de detencion: ",
       stopDate: "Fecha de detencion: ",
-      lastReport: "Ultimo reporte: ",
+      lastReport: "Último reporte: ",
       verification: "Verificación: ",
       age: "Edad: ",
     },
@@ -35,7 +35,7 @@ const es = {
     },
     footer: {
       email: "cubamissing@gmail.com",
-      contactUsButton: "Contactanos",
+      contactUsButton: "Contáctanos",
     },
   },
 };
