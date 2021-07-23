@@ -131,7 +131,7 @@ export const Filters = ({
             {searchIndication}
           </Text>
         </Flex>
-        <Box px={5} py={5} boxShadow="brand.whiteShadow">
+        <Box px={5} py={5}>
           <Grid
             width="full"
             templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }}
