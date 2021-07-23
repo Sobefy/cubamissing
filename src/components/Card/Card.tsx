@@ -33,7 +33,7 @@ const Card = ({ person, translations }: CardProps) => {
         <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
       </Box>
       <Box pt={5} pb={5}>
-        <Text fontSize="3xl" wordBreak="break-word">
+        <Text fontSize="2xl" wordBreak="break-word">
           {fullName}
         </Text>
       </Box>
