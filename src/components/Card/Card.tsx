@@ -61,7 +61,11 @@ const Card = ({ person, translations }: CardProps) => {
             {lastReport}
           </Text>
         </Text>
+
       </Flex>
+
+
+
     </Box>
   );
 };
