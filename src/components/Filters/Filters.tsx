@@ -59,7 +59,7 @@ export const Filters = ({
       router.replace(
         {
           query: {
-            search: newSearchTerm.trim(),
+            search: newSearchTerm,
           },
         },
         undefined,
