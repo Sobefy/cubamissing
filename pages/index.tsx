@@ -79,13 +79,11 @@ export default function Home() {
     <Box backgroundColor="brand.bgWhite">
       <Head>
         <title>Cubamissing.com | Ayudanos a encontrar a nuestros hermanos</title>
-        <meta name="description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
-luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." />
+        <meta name="description" content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio." />
 
 
-        <meta property="og:title" content="Cubamissing.com | Ayudanos a encontrar a nuestros hermanos" key="title" />
-        <meta property="og:description" content="Pedimos que nos ayudes a dar cobertura mediática a esta plataforma. Así podremos iluminar a estos valientes seres humanos que
-luchan contra la injusticia y demandan su derecho a la libertad, una necesidad y deseo innato." key="description" />
+        <meta property="og:title" content="Cubamissing.com | Ayúdanos a encontrar a nuestros hermanos" key="title" />
+        <meta property="og:description" content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio." key="description" />
 
         <meta property="og:image" content="/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
