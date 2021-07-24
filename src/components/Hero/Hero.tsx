@@ -36,6 +36,7 @@ const Hero = ({ translations }: HeroProps) => {
               "url('https://cubamissing-media.s3.amazonaws.com/hero-image.png')",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
           }}
         ></Box>
       </Container>
