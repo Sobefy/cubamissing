@@ -9,7 +9,7 @@ import "@fontsource/karla"
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      {typeof window === 'undefined' ? null : <Component {...pageProps} />}
     </ChakraProvider>
   );
 }

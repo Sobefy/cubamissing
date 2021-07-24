@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import Container from "../Container/Container";
+import {Link} from "react-router-dom";
 
 interface FooterProps {
   translations: {
@@ -32,6 +33,7 @@ const Footer = ({ translations }: FooterProps) => {
           >
             {email}
           </Text>
+          <Link to="/contact#contact">
           <Button
             fontSize="xs"
             fontWeight="semibold"
@@ -43,6 +45,7 @@ const Footer = ({ translations }: FooterProps) => {
           >
             {contactUsButton}
           </Button>
+          </Link>
         </Flex>
       </Container>
     </Box>
