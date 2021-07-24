@@ -2,7 +2,7 @@ import { Box, Container,Heading, Input, Text, Textarea, Button } from "@chakra-u
 import { useState } from "react";
 import Head from "next/head";
 import { GoogleReCaptchaProvider,
-  GoogleReCaptcha } from 'react-google-recaptcha-v3';
+  useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
     Alert,
     AlertIcon,
@@ -14,12 +14,12 @@ import Stats from "../../components/Stats/Stats";
 import es from "../../locales/es";
 import axios from "axios";
 const Contact=()=>{
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const [status,setStatus]=useState<"pending"|"busy"|"error"|"success">("pending");
     const [error,setError]=useState<string>("");
     const [name,setName]=useState<string>("");
     const [email,setEmail]=useState<string>("");
     const [message,setMessage]=useState<string>("");
-    const [captcha,setCaptcha]=useState<string>("");
     const {
         home: {
           head: { headTitle, headDescription },
@@ -45,15 +45,16 @@ const Contact=()=>{
         } else if(!message) {
             setStatus("error");
             return setError("Por favor escriba su mensaje. / Please enter your message.");
-        } else if(!captcha)  {
-          setStatus("error");
-          return setError("Por favor solucione el challenge. / Please solve the captcha challenge.");
-        }else {
+        } else if(!executeRecaptcha) {
+            setStatus("error");
+            return setError("Ocurrió un error al intentar enviar su mensaje. Refresque la página y vuelva a intentarlo. / There has been an error, please refresh the page and try again.");
+        } else {
             setStatus("busy");
             try {
               /**
                * This should come from a .env, leaving it here for the time being.
                */
+                const captcha = await executeRecaptcha();
                 await axios.post(process.env.NEXT_PUBLIC_CONTACT_API || "",{
                     "Nombre/Name":name,
                     "Correo Electrónico/Email":email,
@@ -62,10 +63,12 @@ const Contact=()=>{
                 });
                 return setStatus("success");
             } catch(error) {
-                setStatus("error");
-                return setError("Ocurrió un error al intentar enviar su mensaje. Intente nuevamente. / There has been an error, please try again.");
+              setStatus("error");
+              return setError("Ocurrió un error al intentar enviar su mensaje. Refresque la página y vuelva a intentarlo. / There has been an error, please refresh the page and try again.");
             }
         }
+            
+        
         
     }
 
@@ -107,7 +110,7 @@ const Contact=()=>{
         {(status!=="success") && <Button onClick={sendMessage} disabled={status==="busy"} colorScheme="blue">{status==="busy"?"Wait please / Espere por favor...":"Enviar mensaje / Send Message"}</Button>}
       </Box>
     </Container>
-    <GoogleReCaptcha onVerify={token=>setCaptcha(token)} />
+    
     </main>
       <Footer translations={footer} />
 </Box>
