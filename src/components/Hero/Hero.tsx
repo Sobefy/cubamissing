@@ -15,7 +15,7 @@ const Hero = ({ translations }: HeroProps) => {
     <Box textAlign="center" background="white" py={20} position="relative">
       <Image
         alt="Cuba"
-        src="/logo-cuba-missing.png"
+        src="/hero-image.jpg"
         layout="fill"
         objectFit="cover"
         quality={100}
@@ -24,7 +24,7 @@ const Hero = ({ translations }: HeroProps) => {
         <Box pt={40} pb={40}>
           <Image
             alt="Cuba"
-            src="/logo"
+            src="/logo-cuba-missing.png"
             layout="fill"
             objectFit="contain"
             quality={100}
