@@ -92,9 +92,9 @@ const Contact=()=>{
         <Heading marginBottom={10}>Contact / Contacto</Heading>
         <Text fontSize="2xl">Su Nombre / Your Name</Text>
         <Input disabled={status==="busy" || status==="success"} name="name" onChange={e=>setName(e.target.value)} placeholder="Escriba su nombre / Enter your Name" marginBottom={5} />
-        <Text fontSize="2xl">Your Email</Text>
-        <Input disabled={status==="busy" || status==="success"} type="email" onChange={e=>setEmail(e.target.value)} name="email" placeholder="Escriba su Email / Enter your Email" marginBottom={5} />
-        <Text fontSize="2xl">Your Message</Text>
+        <Text fontSize="2xl">Su Correo Electrónico / Your Email</Text>
+        <Input disabled={status==="busy" || status==="success"} type="email" onChange={e=>setEmail(e.target.value)} name="email" placeholder="Escriba su Correo Electrónico / Enter your Email" marginBottom={5} />
+        <Text fontSize="2xl">Su Mensaje / Your Message</Text>
         <Textarea disabled={status==="busy" || status==="success"} name="message" onChange={e=>setMessage(e.target.value)} placeholder="Escriba su mensaje / Enter your Message" marginBottom={5} />
         {(status==="error"||status==="success") && renderAlert()}
         {(status!=="success") && <Button onClick={sendMessage} disabled={status==="busy"} colorScheme="blue">{status==="busy"?"Wait please / Espere por favor...":"Enviar mensaje / Send Message"}</Button>}
