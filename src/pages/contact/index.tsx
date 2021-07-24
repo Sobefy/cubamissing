@@ -1,6 +1,8 @@
 import { Box, Container,Heading, Input, Text, Textarea, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Head from "next/head";
+import { GoogleReCaptchaProvider,
+  GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
     Alert,
     AlertIcon,
@@ -17,13 +19,12 @@ const Contact=()=>{
     const [name,setName]=useState<string>("");
     const [email,setEmail]=useState<string>("");
     const [message,setMessage]=useState<string>("");
+    const [captcha,setCaptcha]=useState<string>("");
     const {
         home: {
           head: { headTitle, headDescription },
           hero,
           stats,
-          search,
-          cards,
           footer,
         },
       } = es;
@@ -31,38 +32,44 @@ const Contact=()=>{
     const renderAlert=()=>{
         return <Alert status={status as "error"|"success"} marginBottom={5}>
         <AlertIcon />
-        <AlertDescription>{status==="error"?error:"Su mensaje ha sido recibido, muchas gracias. Viva Cuba Libre!!!"}</AlertDescription>
+        <AlertDescription>{status==="error"?error:"Su mensaje ha sido recibido, muchas gracias. / Your message has been received, thank you!"}</AlertDescription>
       </Alert>;
     }
     const sendMessage=async ()=>{
         if(!name) {
             setStatus("error");
-            return setError("Por favor escriba su nombre.");
+            return setError("Por favor escriba su nombre. / Please enter your name.");
         } else if(!/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i.test(email)) {
             setStatus("error");
-            return setError("Por favor escriba su dirección de correo electrónico.");
+            return setError("Por favor escriba su dirección de correo electrónico. / Please enter a valid Email Address.");
         } else if(!message) {
             setStatus("error");
-            return setError("Por favor escriba su mensaje.");
-        } else {
+            return setError("Por favor escriba su mensaje. / Please enter your message.");
+        } else if(!captcha)  {
+          setStatus("error");
+          return setError("Por favor solucione el challenge. / Please solve the captcha challenge.");
+        }else {
             setStatus("busy");
             try {
               /**
                * This should come from a .env, leaving it here for the time being.
                */
-                await axios.post("https://n54ubn2zp4.execute-api.us-east-1.amazonaws.com/javi",{
-                    "Nombre":name,
-                    "Correo Electrónico":email,
-                    "Mensaje":message
+                await axios.post(process.env.NEXT_PUBLIC_CONTACT_API || "",{
+                    "Nombre/Name":name,
+                    "Correo Electrónico/Email":email,
+                    "Mensaje/Message":message,
+                    captcha
                 });
                 return setStatus("success");
             } catch(error) {
                 setStatus("error");
-                return setError("Ocurrió un error al intentar enviar su mensaje. Intente nuevamente.");
+                return setError("Ocurrió un error al intentar enviar su mensaje. Intente nuevamente. / There has been an error, please try again.");
             }
         }
         
     }
+
+
     return (
       <Box backgroundColor="brand.bgWhite">
     <Head>
@@ -100,9 +107,17 @@ const Contact=()=>{
         {(status!=="success") && <Button onClick={sendMessage} disabled={status==="busy"} colorScheme="blue">{status==="busy"?"Wait please / Espere por favor...":"Enviar mensaje / Send Message"}</Button>}
       </Box>
     </Container>
+    <GoogleReCaptcha onVerify={token=>setCaptcha(token)} />
     </main>
       <Footer translations={footer} />
 </Box>
     );
 }
-export default Contact;
+
+const ContactPage=()=>(
+  <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}>
+    <Contact />
+  </GoogleReCaptchaProvider>
+);
+
+export default ContactPage;
