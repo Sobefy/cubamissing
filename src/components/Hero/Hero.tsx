@@ -21,7 +21,7 @@ const Hero = ({ translations }: HeroProps) => {
         quality={100}
       />
       <Container>
-        <Box pt={40} pb={40}>
+        <Box pt={40} pb={40} pl={10} pr={10}>
           <Image
             alt="Cuba"
             src="/logo-cuba-missing.png"
