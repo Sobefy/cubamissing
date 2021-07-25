@@ -89,11 +89,10 @@ export default function Home() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://www.cubamissing.com" />
-
-
         <link rel="icon" href="/favicon.ico" />
+
+
       </Head>
-      <Hero translations={hero} />
       <Stats translations={stats} />
       <Filters
         translations={search}
