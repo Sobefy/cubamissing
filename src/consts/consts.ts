@@ -1,3 +1,5 @@
+import { person } from "../types/types";
+
 export const personResponseObjectPattern = "gsx$";
 export const personResponseObjectProperty = "$t";
 export const googleSpreadsheetsAPIUrl = "https://spreadsheets.google.com";

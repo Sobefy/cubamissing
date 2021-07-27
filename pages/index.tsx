@@ -1,19 +1,13 @@
 import { Box } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import Head from "next/head";
-import useSWR from "swr";
 
 import CardsGrid from "../src/components/CardsGrid/CardsGrid";
 import Footer from "../src/components/Footer/Footer";
-import Hero from "../src/components/Hero/Hero";
 import Stats from "../src/components/Stats/Stats";
-import { googleSpreadsheetsAPIUrl, personsAPIUrl } from "../src/consts/consts";
 import es from "../src/locales/es";
-import { formatPersonsReponse, searchByProperty } from "../src/ultis/format";
-import { person } from "../src/types/types";
+import { searchByProperty } from "../src/ultis/format";
 import Filters from "../src/components/Filters/Filters";
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import usePerson from "../src/hooks/usePerson";
 
 export default function Home() {
   const {
@@ -27,19 +21,7 @@ export default function Home() {
     },
   } = es;
 
-  const { data, error } = useSWR(
-    `${googleSpreadsheetsAPIUrl}${personsAPIUrl}`,
-    fetcher
-  );
-  const formattedData = formatPersonsReponse(data);
-  const isLoading = !error && !formattedData;
-  const [persons, setPersons] = useState<person[] | null>(null);
-
-  useEffect(() => {
-    if (formattedData && !persons) {
-      setPersons(formattedData);
-    }
-  }, [formattedData, persons]);
+  const { persons, isLoading } = usePerson();
 
   const queryParams =
     typeof window !== "undefined"
@@ -67,8 +49,8 @@ export default function Home() {
 
   const hasSearchTerms =
     searchTerm ||
-      (provinceTerm && provinceTerm !== "all") ||
-      (initialTerm && initialTerm !== "all")
+    (provinceTerm && provinceTerm !== "all") ||
+    (initialTerm && initialTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -78,10 +60,23 @@ export default function Home() {
   return (
     <Box backgroundColor="brand.bgWhite">
       <Head>
-        <title>Cubamissing.com | Ayudanos a encontrar a nuestros hermanos</title>
-        <meta name="description" content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio." />
-        <meta property="og:title" content="Cubamissing.com | Ayúdanos a encontrar a nuestros hermanos" key="title" />
-        <meta property="og:description" content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio." key="description" />
+        <title>
+          Cubamissing.com | Ayudanos a encontrar a nuestros hermanos
+        </title>
+        <meta
+          name="description"
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+        />
+        <meta
+          property="og:title"
+          content="Cubamissing.com | Ayúdanos a encontrar a nuestros hermanos"
+          key="title"
+        />
+        <meta
+          property="og:description"
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+          key="description"
+        />
         <meta property="og:image" content="/facebook-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

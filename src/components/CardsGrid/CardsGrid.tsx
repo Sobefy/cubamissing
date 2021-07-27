@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 import { Box, Grid, Text } from "@chakra-ui/react";
+
 import Container from "../Container/Container";
 import { cardTranslations, person } from "../../types/types";
 import Card from "../Card/Card";
@@ -20,14 +22,23 @@ const CardsGrid = ({
   isEmpty,
   searchTerm,
 }: CardsGridProps) => {
+  const router = useRouter();
+
+  const handleCardClick = (id: string) => {
+    // TODO: remove when page SEO is ready
+    // router.push(`/person/${id}`);
+  };
+
   return (
-    <main style={{
-      backgroundImage: "url(/background-image.jpg)",
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-    }} >
+    <main
+      style={{
+        backgroundImage: "url(/background-image.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <Container>
         <Box py={8} pb={14}>
           {isEmpty ? (
@@ -50,6 +61,7 @@ const CardsGrid = ({
                       key={person.id}
                       person={person}
                       translations={translations}
+                      onClick={handleCardClick}
                     />
                   ))}
                 </>
