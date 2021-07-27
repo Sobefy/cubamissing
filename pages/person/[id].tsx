@@ -91,7 +91,7 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
           key="description"
         />
         <meta property="og:image" content={imageURL} />
-        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:width" content="630" />
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={shareURL} />
         <link rel="icon" href="/favicon.ico" />
