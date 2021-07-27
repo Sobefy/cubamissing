@@ -25,17 +25,20 @@ const CardsGrid = ({
   const router = useRouter();
 
   const handleCardClick = (id: string) => {
-    router.push(`/person/${id}`);
+    // TODO: remove when page SEO is ready
+    // router.push(`/person/${id}`);
   };
 
   return (
-    <main style={{
-      backgroundImage: "url(/background-image.jpg)",
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-    }} >
+    <main
+      style={{
+        backgroundImage: "url(/background-image.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <Container>
         <Box py={8} pb={14}>
           {isEmpty ? (
