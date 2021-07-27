@@ -25,9 +25,9 @@ const CardsGrid = ({
   const router = useRouter();
 
   const handleCardClick = (id: string) => {
-    // if (typeof window !== "undefined")
-    //   window.open(`https://list.cubamissing.com/person/${id}`, "_ blank");
-    router.push(`/person/${id}`);
+    if (typeof window !== "undefined")
+      window.open(`https://list.cubamissing.com/person/${id}`, "_ blank");
+    // router.push(`/person/${id}`);
   };
 
   return (
