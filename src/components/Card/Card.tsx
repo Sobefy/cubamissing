@@ -5,14 +5,13 @@ import { cardTranslations, person } from "../../types/types";
 interface CardProps {
   person: person;
   translations: cardTranslations;
+  onClick(id: string): void;
 }
 
-const Card = ({ person, translations }: CardProps) => {
-  const { firstName, lastName, province, stopDate, lastReport, age, image } =
-    person;
+const Card = ({ person, translations, onClick }: CardProps) => {
+  const { firstName, lastName, province, lastReport, age, image, id } = person;
   const {
     province: provinceLabel,
-    stopDate: stopDateLabel,
     lastReport: lastReportLabel,
     age: ageLabel,
   } = translations;
@@ -28,6 +27,9 @@ const Card = ({ person, translations }: CardProps) => {
       boxShadow="brand.whiteShadow"
       borderRadius={8}
       width="full"
+      onClick={() => onClick(id)}
+      cursor="pointer"
+      _hover={{ boxShadow: "xl" }}
     >
       <Box width="full" boxShadow="brand.innerShadow">
         <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
@@ -38,14 +40,12 @@ const Card = ({ person, translations }: CardProps) => {
         </Text>
       </Box>
       <Box>
-
         <Text>
           {ageLabel}
           <Text as="span" color="brand.blue">
             {age}
           </Text>
         </Text>
-
         <Text>
           {provinceLabel}
           <Text as="span" color="brand.blue">
@@ -53,7 +53,6 @@ const Card = ({ person, translations }: CardProps) => {
           </Text>
         </Text>
       </Box>
-
       <Flex>
         <Text>
           {lastReportLabel}
@@ -61,11 +60,7 @@ const Card = ({ person, translations }: CardProps) => {
             {lastReport}
           </Text>
         </Text>
-
       </Flex>
-
-
-
     </Box>
   );
 };
