@@ -70,7 +70,7 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
 
   const fullName = `${firstName} ${lastName}`;
   const imageURL = image || "/placeholder.jpg";
-  const shareURL = `https://list.cubamissing.com/people/${slug}`;
+  const shareURL = `https://list.cubamissing.com/person/${slug}`;
 
   return (
     <Box minHeight="100vh">
