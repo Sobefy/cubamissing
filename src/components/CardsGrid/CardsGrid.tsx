@@ -25,8 +25,7 @@ const CardsGrid = ({
   const router = useRouter();
 
   const handleCardClick = (id: string) => {
-    // TODO: remove when page SEO is ready
-    // router.push(`/person/${id}`);
+    router.push(`/person/${id}`);
   };
 
   return (
