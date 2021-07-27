@@ -29,7 +29,13 @@ const CardsGrid = ({
   };
 
   return (
-    <main>
+    <main style={{
+      backgroundImage: "url(/background-image.jpg)",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+    }} >
       <Container>
         <Box py={8} pb={14}>
           {isEmpty ? (

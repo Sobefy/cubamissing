@@ -41,36 +41,28 @@ const Card = ({ person, translations, onClick }: CardProps) => {
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
     >
-      <Box width="full">
+      <Box width="full" boxShadow="brand.innerShadow">
         <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
       </Box>
       <Box pt={5} pb={5}>
-        <Text fontSize="3xl" wordBreak="break-word">
+        <Text fontSize="2xl" wordBreak="break-word">
           {fullName}
         </Text>
       </Box>
-      <Flex mb={4}>
-        <Box>
-          <Text>
-            {provinceLabel}
-            <Text as="span" color="brand.blue">
-              {province}
-            </Text>
-            {`. ${ageLabel}`}
-            <Text as="span" color="brand.blue">
-              {age}
-            </Text>
-          </Text>
-        </Box>
-      </Flex>
-      <Flex>
+      <Box>
         <Text>
-          {stopDateLabel}
+          {ageLabel}
           <Text as="span" color="brand.blue">
-            {stopDate}
+            {age}
           </Text>
         </Text>
-      </Flex>
+        <Text>
+          {provinceLabel}
+          <Text as="span" color="brand.blue">
+            {province}
+          </Text>
+        </Text>
+      </Box>
       <Flex>
         <Text>
           {lastReportLabel}

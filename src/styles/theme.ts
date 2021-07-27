@@ -18,6 +18,7 @@ const theme = {
       blue: "#2350B2",
       darkBlue: "#1D4ED8",
       blueGrey: "#94A3B8",
+      lightGray: "#f9f9f9",
       oceanBlue: "#0F172A",
       bgWhite: "#fff",
       // Grey
@@ -29,7 +30,9 @@ const theme = {
     brand: {
       // White
       whiteShadow:
-        "0px 2px 4px rgb(148 163 184 / 5%), 0px 6px 24px rgb(235 238 251 / 40%)",
+        "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+      innerShadow:
+        "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
     },
   },
 };

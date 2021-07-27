@@ -7,17 +7,17 @@ const es = {
     },
     stats: {
       toVerify: "Paradero desconocido / Whereabouts unknown",
-      dissapeared: "Desaparicion confirmada / Confirmed missing",
-      detention: "Arrestado / Arrested",
-      released: "Liberado / Released",
+      dissapeared: "Desaparición confirmada / Confirmed missing",
+      detention: "Arrestados / Arrested",
+      released: "Liberados / Released",
       total: "Total",
     },
     search: {
       searchTitle: "DESAPARECIDOS DESDE LAS PROTESTAS DEL 11J / MISSING SINCE JULY 11TH PROTESTS",
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
-      searchPlaceholder: "Escribe el primer nombre de la persona",
-      searchFilter: "Nombre y Apellido",
+      searchPlaceholder: "Escribe el nombre de la persona",
+      searchFilter: "Buscar por nombre",
       provinceFilter: "Provincia",
       firstLetterFilter: "Primera inicial",
     },
@@ -26,7 +26,7 @@ const es = {
       lastSeen: "Lugar donde fue visto por última vez: ",
       stopHour: "La hora de detencion: ",
       stopDate: "Fecha de detencion: ",
-      lastReport: "Ultimo reporte: ",
+      lastReport: "Último reporte: ",
       verification: "Verificación: ",
       age: "Edad: ",
     },
@@ -35,7 +35,7 @@ const es = {
     },
     footer: {
       email: "cubamissing@gmail.com",
-      contactUsButton: "Contactanos",
+      contactUsButton: "Contáctanos",
     },
   },
 };

@@ -59,7 +59,7 @@ export const Filters = ({
       router.replace(
         {
           query: {
-            search: newSearchTerm.trim(),
+            search: newSearchTerm,
           },
         },
         undefined,
@@ -131,10 +131,10 @@ export const Filters = ({
             {searchIndication}
           </Text>
         </Flex>
-        <Box>
+        <Box px={5} py={5}>
           <Grid
             width="full"
-            templateColumns={{ base: "1fr", md: "1fr .5fr .5fr" }}
+            templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }}
             columnGap={8}
             rowGap={{ base: 4, md: 0 }}
           >
