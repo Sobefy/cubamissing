@@ -16,15 +16,24 @@ import Footer from "../../src/components/Footer/Footer";
 import Header from "../../src/components/Header/Header";
 import usePerson from "../../src/hooks/usePerson";
 import es from "../../src/locales/es";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import {
+  googleSpreadsheetsAPIUrl,
+  personsAPIUrl,
+} from "../../src/consts/consts";
+import { formatPersonsReponse } from "../../src/ultis/format";
+import { person } from "../../src/types/types";
 
-const PersonPage = () => {
-  const router = useRouter();
-  const slug = typeof router.query.id === "string" ? router.query.id : "";
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { filteredPerson } = usePerson(slug);
-  const isLoading = !filteredPerson;
+interface PersonPageProps {
+  filteredPerson: person[];
+  slug: string;
+}
+
+const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
   const person =
-    !isLoading && filteredPerson.length > 0
+    filteredPerson.length > 0
       ? filteredPerson[0]
       : {
           id: "",
@@ -151,3 +160,19 @@ const PersonPage = () => {
 };
 
 export default PersonPage;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { id } = context.query;
+  const slug = typeof id === "string" ? id : "";
+  const result = await fetch(`${googleSpreadsheetsAPIUrl}${personsAPIUrl}`);
+  const formattedResult = await result.json();
+  const formattedData = formatPersonsReponse(formattedResult);
+  const filteredPerson =
+    formattedData && slug
+      ? formattedData.filter((person) => {
+          return person.id === slug;
+        })
+      : [];
+
+  return { props: { filteredPerson, slug } };
+}
