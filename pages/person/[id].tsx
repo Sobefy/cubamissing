@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
 import { Box, Center, Grid, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -64,6 +65,28 @@ const PersonPage = () => {
 
   return (
     <Box minHeight="100vh">
+      <Head>
+        <title>{fullName} | Cubamissing.com</title>
+        <meta
+          name="description"
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+        />
+        <meta
+          property="og:title"
+          content={`${fullName} | Cubamissing.com`}
+          key="title"
+        />
+        <meta
+          property="og:description"
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+          key="description"
+        />
+        <meta property="og:image" content={imageURL} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content={shareURL} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <Box zIndex={1} position="relative">
         <Box zIndex={0}>
