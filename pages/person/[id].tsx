@@ -2,8 +2,6 @@ import { Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import Nav from "../../src/components/Nav/Nav";
-import { emptyPerson } from "../../src/consts/consts";
 import usePerson from "../../src/hooks/usePerson";
 
 const PersonPage = () => {
@@ -13,7 +11,25 @@ const PersonPage = () => {
   const { filteredPerson } = usePerson(slug);
   const isLoading = !filteredPerson;
   const person =
-    !isLoading && filteredPerson.length > 0 ? filteredPerson[0] : emptyPerson;
+    !isLoading && filteredPerson.length > 0
+      ? filteredPerson[0]
+      : {
+          id: "",
+          firstName: "",
+          lastName: "",
+          lastSeen: "",
+          province: "",
+          stopHour: "",
+          stopDate: "",
+          lastReport: "",
+          verification: "",
+          gender: "",
+          birthDate: "",
+          age: "",
+          profession: "",
+          skinTone: "",
+          image: "",
+        };
 
   const { firstName, lastName, image } = person;
 
@@ -31,7 +47,6 @@ const PersonPage = () => {
           quality={100}
         />
       </Box>
-      <Nav />
       <Box zIndex={1} position="relative">
         <Box pt={5} pb={5}>
           <Text fontSize="3xl" wordBreak="break-word">
