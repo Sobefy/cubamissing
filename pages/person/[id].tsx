@@ -115,7 +115,7 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
             justifyContent="center"
             py="16"
           >
-            <Center mb={10}>
+            <Center mb={10} textAlign="center">
               <Text fontSize="3xl" wordBreak="break-word">
                 {fullName}
               </Text>
@@ -134,7 +134,10 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
                 <TwitterIcon borderRadius={8} />
               </TwitterShareButton>
             </Center>
-            <Grid gridTemplateColumns="repeat(3, 1fr)" gridColumnGap={4}>
+            <Grid
+              gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+              gridColumnGap={4}
+            >
               <Box>
                 <Row label="Edad" value={age} />
                 <Row label="Provincia" value={province} />
