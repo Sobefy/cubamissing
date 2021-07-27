@@ -9,19 +9,9 @@ interface CardProps {
 }
 
 const Card = ({ person, translations, onClick }: CardProps) => {
-  const {
-    firstName,
-    lastName,
-    province,
-    stopDate,
-    lastReport,
-    age,
-    image,
-    id,
-  } = person;
+  const { firstName, lastName, province, lastReport, age, image, id } = person;
   const {
     province: provinceLabel,
-    stopDate: stopDateLabel,
     lastReport: lastReportLabel,
     age: ageLabel,
   } = translations;
