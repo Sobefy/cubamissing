@@ -11,7 +11,12 @@ const Header = () => {
   };
 
   return (
-    <Box backgroundColor="white" height="162px">
+    <Box
+      backgroundColor="white"
+      height="162px"
+      display="flex"
+      alignItems="center"
+    >
       <Container>
         <Box cursor="pointer" onClick={onClick}>
           <Image
