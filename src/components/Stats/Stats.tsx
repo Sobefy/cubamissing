@@ -38,9 +38,9 @@ const Stats = ({ translations }: StatsProps) => {
         >
           <StatCard label={dissapeared} number={37} gridColumn="1/3" />
           <StatCard label={released} number={163} gridColumn="3/5" />
-          <StatCard label={detention} number={266} gridColumn="1/3" />
+          <StatCard label={detention} number={269} gridColumn="1/3" />
           <StatCard label={toVerify} number={238} gridColumn="3/5" />
-          <StatCard label={total} number={704} gridColumn="1/5" />
+          <StatCard label={total} number={707} gridColumn="1/5" />
         </Grid>
       </Container>
     </Box>
