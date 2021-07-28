@@ -167,13 +167,16 @@ export default PersonPage;
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.query;
   const slug = typeof id === "string" ? id : "";
+  const splittedSlug = slug ? slug.split("-") : [];
+  const personID =
+    splittedSlug.length > 0 ? splittedSlug[splittedSlug.length - 1] : "";
   const result = await fetch(`${googleSpreadsheetsAPIUrl}${personsAPIUrl}`);
   const formattedResult = await result.json();
   const formattedData = formatPersonsReponse(formattedResult);
   const filteredPerson =
-    formattedData && slug
+    formattedData && personID
       ? formattedData.filter((person) => {
-          return person.id === slug;
+          return person.id === personID;
         })
       : [];
 

@@ -6,6 +6,7 @@ import { cardTranslations, person } from "../../types/types";
 import Card from "../Card/Card";
 import CardSkeleton from "../Skeleton/CardSkeleton";
 import { skeletonCardLength } from "../../consts/consts";
+import { slugify } from "../../ultis/format";
 
 interface CardsGridProps {
   translations: cardTranslations;
@@ -24,10 +25,12 @@ const CardsGrid = ({
 }: CardsGridProps) => {
   const router = useRouter();
 
-  const handleCardClick = (id: string) => {
-    if (typeof window !== "undefined")
-      window.open(`https://list.cubamissing.com/person/${id}`, "_ blank");
-    // router.push(`/person/${id}`);
+  const handleCardClick = (id: string, fullName: string) => {
+    if (typeof window !== "undefined") {
+      const formattedName = slugify(fullName);
+      const url = `https://list.cubamissing.com/person/${formattedName}-${id}`;
+      window.open(url, "_ blank");
+    }
   };
 
   return (
