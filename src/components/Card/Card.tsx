@@ -5,7 +5,7 @@ import { cardTranslations, person } from "../../types/types";
 interface CardProps {
   person: person;
   translations: cardTranslations;
-  onClick(id: string): void;
+  onClick(id: string, fullName: string): void;
 }
 
 const Card = ({ person, translations, onClick }: CardProps) => {
@@ -27,7 +27,7 @@ const Card = ({ person, translations, onClick }: CardProps) => {
       boxShadow="brand.whiteShadow"
       borderRadius={8}
       width="full"
-      onClick={() => onClick(id)}
+      onClick={() => onClick(id, fullName)}
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
     >

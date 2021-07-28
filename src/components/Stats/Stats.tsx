@@ -1,9 +1,4 @@
 import { Box, Grid } from "@chakra-ui/react";
-import useSWR from "swr";
-import {
-  googleSpreadsheetsAPIUrl,
-  personsAPIUrlPage2,
-} from "../../consts/consts";
 
 import Container from "../Container/Container";
 import StatCard from "../StatCard/StatCard";
@@ -18,14 +13,8 @@ interface StatsProps {
   };
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const Stats = ({ translations }: StatsProps) => {
   const { dissapeared, released, toVerify, detention, total } = translations;
-  const { data, error } = useSWR(
-    `${googleSpreadsheetsAPIUrl}${personsAPIUrlPage2}`,
-    fetcher
-  );
 
   return (
     <Box py={8} backgroundColor="#2350b2">
