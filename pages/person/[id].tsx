@@ -36,22 +36,22 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
     filteredPerson.length > 0
       ? filteredPerson[0]
       : {
-          id: "",
-          firstName: "",
-          lastName: "",
-          lastSeen: "",
-          province: "",
-          stopHour: "",
-          stopDate: "",
-          lastReport: "",
-          verification: "",
-          gender: "",
-          birthDate: "",
-          age: "",
-          profession: "",
-          skinTone: "",
-          image: "",
-        };
+        id: "",
+        firstName: "",
+        lastName: "",
+        lastSeen: "",
+        province: "",
+        stopHour: "",
+        stopDate: "",
+        lastReport: "",
+        verification: "",
+        gender: "",
+        birthDate: "",
+        age: "",
+        profession: "",
+        skinTone: "",
+        image: "",
+      };
 
   const {
     firstName,
@@ -75,6 +75,7 @@ const PersonPage = ({ filteredPerson, slug }: PersonPageProps) => {
   return (
     <Box minHeight="100vh">
       <Head>
+
         <title>{fullName} | Cubamissing.com</title>
         <meta
           name="description"
@@ -176,8 +177,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const filteredPerson =
     formattedData && personID
       ? formattedData.filter((person) => {
-          return person.id === personID;
-        })
+        return person.id === personID;
+      })
       : [];
 
   return { props: { filteredPerson, slug } };
