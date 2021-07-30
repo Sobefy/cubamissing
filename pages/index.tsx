@@ -49,8 +49,8 @@ export default function Home() {
 
   const hasSearchTerms =
     searchTerm ||
-    (provinceTerm && provinceTerm !== "all") ||
-    (initialTerm && initialTerm !== "all")
+      (provinceTerm && provinceTerm !== "all") ||
+      (initialTerm && initialTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -65,7 +65,7 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento de https://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
         />
         <meta
           property="og:title"
@@ -74,7 +74,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces deEsperanza y Cubalex, anuncian el lanzamiento dehttps://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
+          content="Un grupo de voluntarios que trabajan para apoyar al pueblo de Cuba, incluyendo a líderes de Raíces de Esperanza y Cubalex, anuncian el lanzamiento de https://cubamissing.com. Desaparecidos Cubanos esuna plataforma para documentar los arrestos, desapariciones y violaciones de derechos por parte delrégimen cubano hacia los ciudadanos después de las protestas nacionales que comenzaron el 11 de Julio."
           key="description"
         />
         <meta property="og:image" content="/facebook-image.jpg" />
