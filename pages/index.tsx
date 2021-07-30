@@ -60,6 +60,9 @@ export default function Home() {
   return (
     <Box backgroundColor="brand.bgWhite">
       <Head>
+
+        <meta name="google-site-verification" content="bjphs7ZFE5nbRSDgf0_800tenyHLn4fxZdl0YNUbsCY" />
+
         <title>
           Cubamissing.com | Ayudanos a encontrar a nuestros hermanos
         </title>
