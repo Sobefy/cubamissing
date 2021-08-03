@@ -11,14 +11,7 @@ import usePerson from "../src/hooks/usePerson";
 
 export default function Home() {
   const {
-    home: {
-      head: { headTitle, headDescription },
-      hero,
-      stats,
-      search,
-      cards,
-      footer,
-    },
+    home: { stats, search, cards, footer },
   } = es;
 
   const { persons, isLoading } = usePerson();
@@ -49,8 +42,8 @@ export default function Home() {
 
   const hasSearchTerms =
     searchTerm ||
-      (provinceTerm && provinceTerm !== "all") ||
-      (initialTerm && initialTerm !== "all")
+    (provinceTerm && provinceTerm !== "all") ||
+    (initialTerm && initialTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -60,9 +53,10 @@ export default function Home() {
   return (
     <Box backgroundColor="brand.bgWhite">
       <Head>
-
-        <meta name="google-site-verification" content="bjphs7ZFE5nbRSDgf0_800tenyHLn4fxZdl0YNUbsCY" />
-
+        <meta
+          name="google-site-verification"
+          content="bjphs7ZFE5nbRSDgf0_800tenyHLn4fxZdl0YNUbsCY"
+        />
         <title>
           Cubamissing.com | Ayudanos a encontrar a nuestros hermanos
         </title>
