@@ -115,12 +115,12 @@ export const formatPersonsReponse = (data: personsResponse) => {
 export const searchByProperty = (
   searchTerm: string,
   persons: person[] | null,
-  property: "search" | "province" | "initial"
+  property: "search" | "province" | "initial" | "last_report"
 ) => {
   const results =
     searchTerm && persons && searchTerm !== "all"
       ? persons.filter((person) => {
-          const { firstName, lastName, province } = person;
+          const { firstName, lastName, province, lastReport } = person;
           let searchCriteria = "";
           if (property === "search") {
             searchCriteria = `${firstName} ${lastName}`;
@@ -136,6 +136,19 @@ export const searchByProperty = (
               ? firstName.charAt(0).toLowerCase()
               : "";
             return firstLetter === searchTerm.toLowerCase();
+          }
+          if (property === "last_report") {
+            const trimmedLastReport = lastReport.trim();
+            return (
+              (trimmedLastReport === "En proceso de verificación" &&
+                searchTerm === "verificacion") ||
+              (trimmedLastReport === "En detención" &&
+                searchTerm === "detencion") ||
+              (trimmedLastReport === "En desaparición forzada" &&
+                searchTerm === "desaparicion_forzada") ||
+              (trimmedLastReport === "En excarcelación" &&
+                searchTerm === "excarcelacion")
+            );
           }
           return searchCriteria
             .trim()
