@@ -6,6 +6,7 @@ import Search from "../Search/Search";
 import SelectFilter from "./SelectFilter/SelectFilter";
 import { getAlphabet, getUniqueProvinces } from "../../ultis/format";
 import { person } from "../../types/types";
+import { lastReportArray } from "../../consts/consts";
 
 interface FilterProps {
   translations: {
@@ -19,6 +20,7 @@ interface FilterProps {
   searchTerm: string;
   provinceTerm: string;
   initialTerm: string;
+  lastReportTerm: string;
   queryParams: URLSearchParams | null;
   persons: person[] | null;
 }
@@ -28,6 +30,7 @@ export const Filters = ({
   searchTerm,
   provinceTerm,
   initialTerm,
+  lastReportTerm,
   queryParams,
   persons,
 }: FilterProps) => {
@@ -60,6 +63,24 @@ export const Filters = ({
         {
           query: {
             search: newSearchTerm,
+          },
+        },
+        undefined,
+        {
+          scroll: false,
+          shallow: true,
+        }
+      );
+    }
+  };
+
+  const handleChangeLastReport = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (queryParams) {
+      const newSearchTerm = e.target.value;
+      router.replace(
+        {
+          query: {
+            last_report: newSearchTerm.trim(),
           },
         },
         undefined,
@@ -134,7 +155,7 @@ export const Filters = ({
         <Box px={5} py={5}>
           <Grid
             width="full"
-            templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }}
+            templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
             columnGap={8}
             rowGap={{ base: 4, md: 0 }}
           >
@@ -149,6 +170,12 @@ export const Filters = ({
               options={provincesArray}
               onChange={handleChangeFilter}
               value={provinceTerm}
+            />
+            <SelectFilter
+              label="Último reporte"
+              options={lastReportArray}
+              onChange={handleChangeLastReport}
+              value={lastReportTerm}
             />
             <SelectFilter
               label={firstLetterFilter}

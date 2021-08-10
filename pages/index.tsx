@@ -23,6 +23,9 @@ export default function Home() {
   const searchTerm = queryParams ? queryParams.get("search") ?? "" : "";
   const provinceTerm = queryParams ? queryParams.get("province") ?? "" : "";
   const initialTerm = queryParams ? queryParams.get("initial") ?? "" : "";
+  const lastReportTerm = queryParams
+    ? queryParams.get("last_report") ?? ""
+    : "";
   const searchByNameResult = searchByProperty(searchTerm, persons, "search");
   const searchByProvinceResult = searchByProperty(
     provinceTerm,
@@ -34,16 +37,23 @@ export default function Home() {
     persons,
     "initial"
   );
+  const searchByLastReportResult = searchByProperty(
+    lastReportTerm,
+    persons,
+    "last_report"
+  );
 
   const results = searchByNameResult.concat(
     searchByProvinceResult,
-    searchByInitialResult
+    searchByInitialResult,
+    searchByLastReportResult
   );
 
   const hasSearchTerms =
     searchTerm ||
-      (provinceTerm && provinceTerm !== "all") ||
-      (initialTerm && initialTerm !== "all")
+    (provinceTerm && provinceTerm !== "all") ||
+    (initialTerm && initialTerm !== "all") ||
+    (lastReportTerm && lastReportTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -87,6 +97,7 @@ export default function Home() {
         searchTerm={searchTerm}
         provinceTerm={provinceTerm}
         initialTerm={initialTerm}
+        lastReportTerm={lastReportTerm}
         persons={persons}
       />
 
