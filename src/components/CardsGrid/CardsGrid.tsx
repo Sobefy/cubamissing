@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
-import { Box, Grid, Text } from "@chakra-ui/react";
+import { Box, Grid, Text, Center } from "@chakra-ui/react";
 
 import Container from "../Container/Container";
 import { cardTranslations, person } from "../../types/types";
 import Card from "../Card/Card";
+import Modal from "../Modal/Modal";
 import CardSkeleton from "../Skeleton/CardSkeleton";
 import { skeletonCardLength } from "../../consts/consts";
 import { slugify } from "../../ultis/format";
+import { auto } from "@popperjs/core";
 
 interface CardsGridProps {
   translations: cardTranslations;
@@ -44,6 +46,10 @@ const CardsGrid = ({
       }}
     >
       <Container>
+
+        <Center><Modal /></Center>
+
+
         <Box py={8} pb={14}>
           {isEmpty ? (
             <Text color="#2d2d2d">
