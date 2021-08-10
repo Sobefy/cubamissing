@@ -21,6 +21,7 @@ const Search = ({
   handleSearch,
 }: SearchProps) => {
   return (
+
     <Box>
       <FormLabel fontSize="sm">{searchFilter}</FormLabel>
       <InputGroup>
@@ -39,6 +40,7 @@ const Search = ({
         />
       </InputGroup>
     </Box>
+
   );
 };
 

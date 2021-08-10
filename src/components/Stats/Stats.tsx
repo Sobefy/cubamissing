@@ -1,5 +1,4 @@
 import { Box, Grid } from "@chakra-ui/react";
-
 import Container from "../Container/Container";
 import StatCard from "../StatCard/StatCard";
 

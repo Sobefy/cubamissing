@@ -42,8 +42,8 @@ export default function Home() {
 
   const hasSearchTerms =
     searchTerm ||
-    (provinceTerm && provinceTerm !== "all") ||
-    (initialTerm && initialTerm !== "all")
+      (provinceTerm && provinceTerm !== "all") ||
+      (initialTerm && initialTerm !== "all")
       ? true
       : false;
   const hasFilteredResults =
@@ -89,6 +89,7 @@ export default function Home() {
         initialTerm={initialTerm}
         persons={persons}
       />
+
       <CardsGrid
         translations={cards}
         isLoading={isLoading}
