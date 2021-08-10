@@ -18,7 +18,7 @@ function ModalBox() {
         <>
             <Button my={8} py={8} colorScheme="red" onClick={onOpen}>Important: Click Here!</Button>
 
-            <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
+            <Modal size={"2xl"} isOpen={isOpen} onClose={onClose} scrollBehavior={"inside"}>
                 <ModalOverlay />
                 <ModalContent>
 
