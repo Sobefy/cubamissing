@@ -46,10 +46,6 @@ const CardsGrid = ({
       }}
     >
       <Container>
-
-        <Center><Modal /></Center>
-
-
         <Box py={8} pb={14}>
           {isEmpty ? (
             <Text color="#2d2d2d">

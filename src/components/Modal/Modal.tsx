@@ -19,15 +19,13 @@ function ModalBox() {
         <>
             <Button my={8} py={8} colorScheme="red" onClick={onOpen}>Important: Click Here!</Button>
 
-            <Modal size={"2xl"} isOpen={isOpen} onClose={onClose} scrollBehavior={"inside"}>
+            <Modal size={"full"} isOpen={isOpen} onClose={onClose} scrollBehavior={"inside"}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader></ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                         <Image boxSize="100%" objectFit="contain" src="/twitter-takeover-1.jpeg" alt="Twitter takeover"
-                        />
-                        <Image boxSize="100%" objectFit="contain" src="/twitter-takeover-2.jpeg" alt="Twitter takeover"
                         />
                     </ModalBody>
 
