@@ -17,9 +17,9 @@ const es = {
       searchIndication:
         "Escribe el nombre de la persona que estas tratando de localizar.",
       searchPlaceholder: "Escribe el nombre de la persona",
-      searchFilter: "Buscar por nombre",
-      provinceFilter: "Provincia",
-      firstLetterFilter: "Primera inicial",
+      searchFilter: "Buscar por nombre / Search by name",
+      provinceFilter: "Provincia / Province",
+      firstLetterFilter: "Primera inicial / First letter",
     },
     cards: {
       province: "Provincia: ",
