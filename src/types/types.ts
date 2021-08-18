@@ -34,8 +34,6 @@ export interface personUnformatted {
   [key: string]: stringObject;
 }
 
-export interface personsResponse {
-  feed: {
-    entry: personUnformatted[];
-  };
+export interface personsRawResponse {
+  sheets: { data: { rowData: { values: { formattedValue: string }[] }[] }[] }[];
 }

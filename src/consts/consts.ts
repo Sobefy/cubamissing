@@ -1,11 +1,8 @@
-import { person } from "../types/types";
-
-export const personResponseObjectPattern = "gsx$";
+export const GOOGLE_API_KEY = process.env.NEXT_GOOGLE_API_KEY || "";
 export const personResponseObjectProperty = "$t";
-export const googleSpreadsheetsAPIUrl = "https://spreadsheets.google.com";
+export const googleSpreadsheetsAPIUrl = "https://sheets.googleapis.com";
 export const spreadsheetID = "1-38omFpJdDiKTSBoUOg19tv2nJxtNRS3-2HfVUUwtSw";
-export const personsAPIUrl = `/feeds/list/${spreadsheetID}/1/public/values?alt=json`;
-export const personsAPIUrlPage2 = `/feeds/list/1Q0ooW6rTiwhBj_WVEKCByqKx_NwrQG-JsKQqhGySFLE/2/public/values?alt=json`;
+export const personsAPIUrl = `/v4/spreadsheets/${spreadsheetID}/?key=${GOOGLE_API_KEY}&includeGridData=true`;
 export const skeletonCardLength = 20;
 export const lastReportArray = [
   { id: "all", label: "Todos" },
