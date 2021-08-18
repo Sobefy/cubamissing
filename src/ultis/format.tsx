@@ -2,7 +2,7 @@ import {
   personResponseObjectPattern,
   personResponseObjectProperty,
 } from "../consts/consts";
-import { person, personsResponse } from "../types/types";
+import { person, personsRawResponse } from "../types/types";
 
 const formatPersonResponseKey = (key: string) => {
   let newKey:
@@ -22,9 +22,8 @@ const formatPersonResponseKey = (key: string) => {
     | "skinTone"
     | "image"
     | "" = "";
-  let replacedKey = key.replace(personResponseObjectPattern, "");
 
-  switch (replacedKey) {
+  switch (key) {
     case "nombre":
       newKey = "firstName";
       break;
@@ -76,12 +75,16 @@ const formatPersonResponseKey = (key: string) => {
   return newKey;
 };
 
-export const formatPersonsReponse = (data: personsResponse) => {
-  if (data) {
-    const formatted = [];
-    const rows = data.feed.entry;
-    for (const row of rows) {
-      const newRow = {
+export const formatPersonsReponse = (response: personsRawResponse) => {
+  const rowData = response?.sheets[0]?.data[0]?.rowData;
+  const columns = rowData ? rowData[0]?.values : null;
+  const data = rowData ? rowData.slice(1) : [];
+  const formattedResponse: any = [];
+
+  if (response && data) {
+    data.map((el) => {
+      const currentArray = el.values;
+      const currentObject = {
         id: "",
         firstName: "",
         lastName: "",
@@ -98,16 +101,25 @@ export const formatPersonsReponse = (data: personsResponse) => {
         skinTone: "",
         image: "",
       };
-      for (const key in row) {
-        const newKey = formatPersonResponseKey(key);
-        const newValue = row[key][personResponseObjectProperty];
-        if (newKey) {
-          newRow[newKey] = newValue;
+
+      currentArray.map((el2, index) => {
+        const value = el2.formattedValue;
+        const column =
+          columns && columns[index] && columns[index].formattedValue
+            ? columns[index].formattedValue.toLowerCase().replace(/\s/g, "")
+            : "";
+        const key = columns ? formatPersonResponseKey(column) : "";
+        if (key && value) {
+          currentObject[key] = value;
         }
+      });
+
+      if (currentObject.id) {
+        formattedResponse.push(currentObject);
       }
-      formatted.push(newRow);
-    }
-    return formatted;
+    });
+
+    return formattedResponse;
   }
   return null;
 };
