@@ -1,7 +1,3 @@
-import {
-  personResponseObjectPattern,
-  personResponseObjectProperty,
-} from "../consts/consts";
 import { person, personsRawResponse } from "../types/types";
 
 const formatPersonResponseKey = (key: string) => {
@@ -79,9 +75,10 @@ export const formatPersonsReponse = (response: personsRawResponse) => {
   const rowData = response?.sheets[0]?.data[0]?.rowData;
   const columns = rowData ? rowData[0]?.values : null;
   const data = rowData ? rowData.slice(1) : [];
-  const formattedResponse: any = [];
 
   if (response && data) {
+    const formattedResponse: person[] = [];
+
     data.map((el) => {
       const currentArray = el.values;
       const currentObject = {
