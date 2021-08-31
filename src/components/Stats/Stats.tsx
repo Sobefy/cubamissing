@@ -24,11 +24,11 @@ const Stats = ({ translations }: StatsProps) => {
           rowGap={{ base: 6, md: 0 }}
           textAlign="center"
         >
-          <StatCard label={dissapeared} number={2} gridColumn="1/3" />
-          <StatCard label={released} number={303} gridColumn="3/5" />
-          <StatCard label={detention} number={400} gridColumn="1/3" />
-          <StatCard label={toVerify} number={159} gridColumn="3/5" />
-          <StatCard label={total} number={864} gridColumn="1/5" />
+          <StatCard label={dissapeared} number={0} gridColumn="1/3" />
+          <StatCard label={released} number={366} gridColumn="3/5" />
+          <StatCard label={detention} number={403} gridColumn="1/3" />
+          <StatCard label={toVerify} number={127} gridColumn="3/5" />
+          <StatCard label={total} number={896} gridColumn="1/5" />
         </Grid>
       </Container>
     </Box>
