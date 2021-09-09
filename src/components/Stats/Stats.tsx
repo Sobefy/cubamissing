@@ -19,7 +19,7 @@ const Stats = ({ translations }: StatsProps) => {
     <Box py={8} backgroundColor="#2350b2">
       <Container>
         <Grid
-          templateColumns={{ base: "repeat(4, 1fr)", md: "repeat(5, 1fr)" }}
+          templateColumns={{ base: "repeat(4, 1fr)", md: "repeat(4, 1fr)" }}
           columnGap={{ base: 4, md: 6 }}
           rowGap={{ base: 6, md: 0 }}
           textAlign="center"
