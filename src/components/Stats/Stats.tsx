@@ -24,7 +24,7 @@ const Stats = ({ translations }: StatsProps) => {
           rowGap={{ base: 6, md: 0 }}
           textAlign="center"
         >
-          <StatCard label={dissapeared} number={0} gridColumn="1/3" />
+          { /* <StatCard label={dissapeared} number={0} gridColumn="1/3" /> */}
           <StatCard label={released} number={411} gridColumn="3/5" />
           <StatCard label={detention} number={443} gridColumn="1/3" />
           <StatCard label={toVerify} number={102} gridColumn="3/5" />
