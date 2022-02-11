@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { cardTranslations, person } from "../../types/types";
+import { Image } from '@chakra-ui/react';
+import { lazy } from "react";
 
 interface CardProps {
   person: person;
@@ -32,7 +34,7 @@ const Card = ({ person, translations, onClick }: CardProps) => {
       _hover={{ boxShadow: "xl" }}
     >
       <Box width="full" boxShadow="brand.innerShadow">
-        <img alt="Person's image" src={imageURL} style={{ width: "100%" }} />
+        <Image loading='lazy' src={imageURL} alt="Person's image" />
       </Box>
       <Box pt={5} pb={5}>
         <Text fontSize="2xl" wordBreak="break-word">
